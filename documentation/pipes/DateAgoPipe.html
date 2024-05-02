@@ -77,30 +77,37 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content module">
+               <div class="content pipe">
                    <div class="content-data">
 
 
 
+
+
+
+
+
+
+
+
 <ol class="breadcrumb">
-    <li class="breadcrumb-item">Modules</li>
-    <li class="breadcrumb-item" >AppRoutingModule</li>
+  <li class="breadcrumb-item">Pipes</li>
+  <li class="breadcrumb-item" >DateAgoPipe</li>
 </ol>
 
-
 <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-        <a href="#info" 
-            class="nav-link"
-            class="nav-link active"
-            role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
-    </li>
-    <li class="nav-item">
-        <a href="#source" 
-            class="nav-link"
-            
-            role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
-    </li>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
 </ul>
 
 <div class="tab-content">
@@ -110,82 +117,158 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/app-routing.module.ts</code>
+            <code>src/app/pipes/date-ago.pipe.ts</code>
         </p>
 
 
 
 
+        <section data-compodoc="block-metadata">
+            <h3>Metadata</h3>
+            <table class="table table-sm table-hover metadata">
+                <tbody>
+                    <tr>
+                        <td class="col-md-3">Name</td>
+                        <td class="col-md-9">dateAgo</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-3">Pure</td>
+                        <td class="col-md-9">true</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-        <div class="container-fluid module">
-            <div class="row">
-            </div>
-        </div>
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transform"></a>
+                    <span class="name">
+                        <span ><b>transform</b></span>
+                        <a href="#transform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>transform(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, args?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
 
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="8"
+                                    class="link-to-prism">src/app/pipes/date-ago.pipe.ts:8</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>args</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
-import { LoginComponent } from &#x27;./pages/login/login.component&#x27;;
-import { AuthGuard } from &#x27;./guards/auth.guard&#x27;;
-import { VerificationComponent } from &#x27;./components/verification/verification.component&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
 
-const routes: Routes &#x3D; [
-  { path: &#x27;&#x27;, component: LoginComponent },
-  {
-    path: &#x27;user&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./pages/user/user.module&#x27;).then((m) &#x3D;&gt; m.UserModule)&quot;,
-    /**
-     * is used in Angular routing configuration to specify a guard for protecting a route.
-     * The AuthGuard class contains login to determine if the user is authorized to access the above route
-     * based on there current logged in status
-     */
-    canActivate: [AuthGuard],
-  },
-  {
-    path: &#x27;album&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./pages/album/album.module&#x27;).then((m) &#x3D;&gt; m.AlbumModule)&quot;,
-    /**
-     * is used in Angular routing configuration to specify a guard for protecting a route.
-     * The AuthGuard class contains login to determine if the user is authorized to access the above route
-     * based on there current logged in status
-     */
-    canActivate: [AuthGuard],
-  },
-  {
-    path: &#x27;photo&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./pages/photo/photo.module&#x27;).then((m) &#x3D;&gt; m.PhotoModule)&quot;,
-    /**
-     * is used in Angular routing configuration to specify a guard for protecting a route.
-     * The AuthGuard class contains login to determine if the user is authorized to access the above route
-     * based on there current logged in status
-     */
-    canActivate: [AuthGuard],
-  },
-  { path: &#x27;verification&#x27;, component: VerificationComponent },
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+@Pipe({
+  name: &#x27;dateAgo&#x27;,
+  pure: true,
 })
-export class AppRoutingModule {}
+export class DateAgoPipe implements PipeTransform {
+  transform(value: any, args?: any): any {
+    if (value) {
+      const seconds &#x3D; Math.floor((+new Date() - +new Date(value)) / 1000);
+      if (seconds &lt; 29)
+        // less than 30 seconds ago will show as &#x27;Just now&#x27;
+        return &#x27;Just now&#x27;;
+      const intervals: { [key: string]: number } &#x3D; {
+        year: 31536000,
+        month: 2592000,
+        week: 604800,
+        day: 86400,
+        hour: 3600,
+        minute: 60,
+        second: 1,
+      };
+      let counter;
+      for (const i in intervals) {
+        counter &#x3D; Math.round(seconds / intervals[i]);
+        if (counter &gt; 0)
+          if (counter &#x3D;&#x3D;&#x3D; 1) {
+            return counter + &#x27; &#x27; + i + &#x27; ago&#x27;; // singular (1 day ago)
+          } else {
+            return counter + &#x27; &#x27; + i + &#x27;s ago&#x27;; // plural (2 days ago)
+          }
+      }
+    }
+    return value;
+  }
+}
 </code></pre>
     </div>
+
 </div>
-
-
-
-
-
-
-
 
 
 
@@ -221,8 +304,8 @@ export class AppRoutingModule {}
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppRoutingModule.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'pipe';
+            var COMPODOC_CURRENT_PAGE_URL = 'DateAgoPipe.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

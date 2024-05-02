@@ -1,0 +1,1279 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>si-assessment documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">si-assessment documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  PhotoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/photo/photo/photo.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-photo</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./photo.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./photo.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#album" >album</a>
+                            </li>
+                            <li>
+                                <a href="#id1" >id1</a>
+                            </li>
+                            <li>
+                                <a href="#id2" >id2</a>
+                            </li>
+                            <li>
+                                <a href="#id3" >id3</a>
+                            </li>
+                            <li>
+                                <a href="#photo" >photo</a>
+                            </li>
+                            <li>
+                                <a href="#photos" >photos</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#scroll" >scroll</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, route: ActivatedRoute)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/photo/photo/photo.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/app/pages/photo/photo/photo.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scroll"></a>
+                    <span class="name">
+                        <span ><b>scroll</b></span>
+                        <a href="#scroll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>scroll(el: HTMLElement)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/pages/photo/photo/photo.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p> This function scrolls the page to a specified HTMLElement smoothly.
+ It takes an HTMLElement parameter &#39;el&#39; representing the target element to scroll to.
+It uses the scrollIntoView method with the &#39;smooth&#39; behavior option to achieve smooth scrolling to the target element.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>el</td>
+                                            <td>
+                                                        <code>HTMLElement</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>target ID to scroll to</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="album"></a>
+                    <span class="name">
+                        <span ><b>album</b></span>
+                        <a href="#album"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/photo/photo/photo.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id1"></a>
+                    <span class="name">
+                        <span ><b>id1</b></span>
+                        <a href="#id1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/pages/photo/photo/photo.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id2"></a>
+                    <span class="name">
+                        <span ><b>id2</b></span>
+                        <a href="#id2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/photo/photo/photo.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id3"></a>
+                    <span class="name">
+                        <span ><b>id3</b></span>
+                        <a href="#id3"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/photo/photo/photo.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="photo"></a>
+                    <span class="name">
+                        <span ><b>photo</b></span>
+                        <a href="#photo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/photo/photo/photo.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="photos"></a>
+                    <span class="name">
+                        <span ><b>photos</b></span>
+                        <a href="#photos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/photo/photo/photo.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User | any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/photo/photo/photo.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { User } from &#x27;src/app/models/user&#x27;;
+import { AuthService } from &#x27;src/app/services/auth.service&#x27;;
+
+@Component({
+  selector: &#x27;app-photo&#x27;,
+  templateUrl: &#x27;./photo.component.html&#x27;,
+  styleUrls: [&#x27;./photo.component.scss&#x27;],
+})
+export class PhotoComponent {
+  user: User | any;
+  id1: any;
+  id2: any;
+  id3: any;
+
+  photo: any;
+  album: any;
+  photos: any;
+
+  constructor(
+    protected auth: AuthService,
+    private route: ActivatedRoute,
+  ) {}
+  ngOnInit() {
+    this.auth.user$.subscribe((e) &#x3D;&gt; {
+      this.user &#x3D; e;
+    });
+
+    // Retrieving album id parameter
+    this.id1 &#x3D; this.route.snapshot.paramMap.get(&#x27;userId&#x27;);
+
+    // Retrieving album id parameter
+    this.id2 &#x3D; this.route.snapshot.paramMap.get(&#x27;id&#x27;);
+    this.id3 &#x3D; this.route.snapshot.paramMap.get(&#x27;photoId&#x27;);
+
+    console.log(&#x27;param&#x27;, this.route.snapshot.paramMap);
+
+    const stringWithoutSpaces &#x3D; this.id1.replace(/\s/g, &#x27;&#x27;);
+
+    this.photo &#x3D; this.auth
+      .getPhoto(stringWithoutSpaces, this.id2, this.id3)
+      .subscribe((e) &#x3D;&gt; {
+        this.photo &#x3D; e;
+        console.log(&#x27;e&#x27;, e);
+      });
+  }
+
+  /**
+   *  This function scrolls the page to a specified HTMLElement smoothly.
+   *  It takes an HTMLElement parameter &#x27;el&#x27; representing the target element to scroll to.
+   * It uses the scrollIntoView method with the &#x27;smooth&#x27; behavior option to achieve smooth scrolling to the target element.
+
+   * @param {HTMLElement} el  target ID to scroll to
+   */
+
+  scroll(el: HTMLElement) {
+    el.scrollIntoView({ behavior: &#x27;smooth&#x27; });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;h-screen w-screen flex bg-gray-200&quot;&gt;
+  &lt;!-- container --&gt;
+  &lt;app-side-nav&gt;&lt;/app-side-nav&gt;
+  &lt;div class&#x3D;&quot;w-screen flex flex-col&quot; style&#x3D;&quot;overflow-y: auto&quot;&gt;
+    &lt;link
+      rel&#x3D;&quot;stylesheet&quot;
+      href&#x3D;&quot;https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/riva-dashboard.css&quot;
+    /&gt;
+    &lt;div class&#x3D;&quot;flex flex-wrap -mx-3 mb-5&quot;&gt;
+      &lt;div class&#x3D;&quot;w-full max-w-full px-3 mb-6 mx-auto&quot;&gt;
+        &lt;div
+          class&#x3D;&quot;relative flex-[1_auto] flex flex-col break-words min-w-0 bg-clip-border rounded-[.95rem] bg-white m-5&quot;
+        &gt;
+          &lt;div
+            class&#x3D;&quot;relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30&quot;
+          &gt;
+            &lt;app-nav-bar&gt;&lt;/app-nav-bar&gt;
+            &lt;div
+              class&#x3D;&quot;w-full px-10 py-6 mx-auto loopple-min-height-78vh text-slate-500&quot;
+            &gt;
+              &lt;div class&#x3D;&quot;flex flex-wrap -mx-3 mb-5 removable&quot;&gt;
+                &lt;div
+                  class&#x3D;&quot;w-full max-w-full px-3 mb-6 lg:w-8/12 sm:flex-none xl:mb-0&quot;
+                &gt;
+                  &lt;div
+                    class&#x3D;&quot;relative flex flex-col break-words min-w-0 bg-clip-border rounded-xl bg-neutral-900 mb-5&quot;
+                  &gt;
+                    &lt;!-- card body  --&gt;
+                    &lt;div
+                      *ngIf&#x3D;&quot;auth.user$ | async as user; else noUser&quot;
+                      class&#x3D;&quot;flex-auto block py-8 px-9&quot;
+                    &gt;
+                      &lt;div class&#x3D;&quot;m-0 z-20 relative&quot;&gt;
+                        &lt;div
+                          class&#x3D;&quot;relative z-20 text-3xl font-semibold text-white w-3/4&quot;
+                        &gt;
+                          {{ photo.title | titlecase }}
+                        &lt;/div&gt;
+                        &lt;p class&#x3D;&quot;text-white py-4&quot;&gt;
+                          {{ photo.description }}
+                        &lt;/p&gt;
+
+                        &lt;!-- &lt;div class&#x3D;&quot;flex flex-col gap-2 xl:gap-4 sm:flex-row&quot;&gt;
+                            &lt;a
+                              (click)&#x3D;&quot;scroll(users)&quot;
+                              class&#x3D;&quot;shrink-0 inline-block text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out text-dark bg-white border-white shadow-none [border:_0] px-5 py-3.5 hover:bg-white/90 active:bg-white focus:bg-white&quot;
+                              &gt;All Users&lt;/a
+                            &gt;
+                            &lt;a
+                              href&#x3D;&quot;javascript:void(0)&quot;
+                              class&#x3D;&quot;inline-block shrink-0 text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out text-white bg-white/[.15] shadow-none [border:_0] px-5 py-3.5 hover:bg-white/25 active:bg-white/25 focus:bg-white/25&quot;
+                              &gt;My Account&lt;/a
+                            &gt;
+                          &lt;/div&gt; --&gt;
+                      &lt;/div&gt;
+                      &lt;img
+                        src&#x3D;&quot;https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/bonus.png&quot;
+                        class&#x3D;&quot;bottom-0 absolute mr-3 end-0 h-[200px] opacity-40 z-10&quot;
+                        alt&#x3D;&quot;&quot;
+                      /&gt;
+                    &lt;/div&gt;
+                    &lt;ng-template #noUser&gt;
+                      &lt;!-- Toast --&gt;
+                      &lt;div
+                        class&#x3D;&quot;max-w-xs bg-white border border-gray-200 rounded-xl shadow-lg&quot;
+                        role&#x3D;&quot;alert&quot;
+                      &gt;
+                        &lt;div class&#x3D;&quot;flex items-center p-4&quot;&gt;
+                          &lt;div
+                            class&#x3D;&quot;animate-spin inline-block size-4 border-[3px] border-current border-t-transparent text-blue-600 rounded-full&quot;
+                            role&#x3D;&quot;status&quot;
+                            aria-label&#x3D;&quot;loading&quot;
+                          &gt;
+                            &lt;span class&#x3D;&quot;sr-only&quot;&gt;Loading...&lt;/span&gt;
+                          &lt;/div&gt;
+                          &lt;p class&#x3D;&quot;ms-3 text-sm text-gray-700&quot;&gt;
+                            Search for user records
+                          &lt;/p&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                      &lt;!-- End Toast --&gt;
+                    &lt;/ng-template&gt;
+                  &lt;/div&gt;
+                  &lt;div #users&gt;
+                    &lt;div class&#x3D;&quot;grid grid-col-1 items-center justify-center&quot;&gt;
+                      &lt;img
+                        class&#x3D;&quot;rounded-xl max-h-[600px] h-auto object-cover&quot;
+                        [src]&#x3D;&quot;photo.imageUrl&quot;
+                        alt&#x3D;&quot;Dog&quot;
+                      /&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div
+                  class&#x3D;&quot;w-full max-w-full px-3 mb-6 lg:w-4/12 sm:flex-none xl:mb-0&quot;
+                &gt;
+                  &lt;div
+                    class&#x3D;&quot;relative flex flex-col min-w-0 break-words bg-gray-100 border-0 bg-clip-border rounded-2xl mb-5&quot;
+                  &gt;
+                    &lt;!-- card header --&gt;
+                    &lt;div
+                      class&#x3D;&quot;px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent&quot;
+                    &gt;
+                      &lt;div
+                        class&#x3D;&quot;flex flex-col items-start justify-center m-2 ml-0 font-medium text-xl/normal text-dark&quot;
+                      &gt;
+                        &lt;!--begin::Amount--&gt;
+                        &lt;span
+                          class&#x3D;&quot;text-dark text-5xl/none font-semibold mr-2 tracking-[-0.115rem]&quot;
+                        &gt;
+                          {{ photo.likes }}
+                        &lt;/span&gt;
+                        &lt;!--end::Amount--&gt;
+
+                        &lt;!--begin::Subtitle--&gt;
+                        &lt;span class&#x3D;&quot;pt-1 font-medium text-dark text-lg/normal&quot;
+                          &gt;Likes&lt;/span
+                        &gt;
+                        &lt;!--end::Subtitle--&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- card body  --&gt;
+                    &lt;div class&#x3D;&quot;flex items-end flex-auto py-8 pt-0 px-9&quot;&gt;
+                      &lt;!--begin::Progress--&gt;
+                      &lt;div class&#x3D;&quot;flex flex-col items-center w-full mt-3&quot;&gt;
+                        &lt;div
+                          class&#x3D;&quot;flex justify-between w-full mt-auto mb-2 font-semibold text-dark text-lg/normal&quot;
+                        &gt;
+                          &lt;span class&#x3D;&quot;mr-4 text-dark&quot;
+                            &gt;Storage capacity limit&lt;/span
+                          &gt;
+                          &lt;span&gt;80%&lt;/span&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;mx-3 rounded-2xl h-[8px] w-full bg-white&quot;&gt;
+                          &lt;div
+                            class&#x3D;&quot;rounded-2xl bg-dark w-[85%] h-[8px]&quot;
+                          &gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                      &lt;!--end::Progress--&gt;
+                    &lt;/div&gt;
+                    &lt;!-- end card body  --&gt;
+                  &lt;/div&gt;
+                  &lt;!-- end card body  --&gt;
+                  &lt;h3 class&#x3D;&quot;font-bold mb-5 text-2xl&quot;&gt;Activity&lt;/h3&gt;
+                  &lt;div
+                    class&#x3D;&quot;relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30 mb-5&quot;
+                  &gt;
+                    &lt;!-- card body  --&gt;
+                    &lt;div class&#x3D;&quot;flex-auto block py-8 pt-6 px-9&quot;&gt;
+                      &lt;div
+                        class&#x3D;&quot;relative before:content-[&#x27;&#x27;] before:absolute before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark&quot;
+                      &gt;
+                        &lt;div class&#x3D;&quot;relative flex items-start mb-7&quot;&gt;
+                          &lt;div
+                            class&#x3D;&quot;block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[&#x27;&#x27;] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark&quot;
+                          &gt;
+                            09:15
+                          &lt;/div&gt;
+
+                          &lt;div
+                            class&#x3D;&quot;shrink-0 bg-black-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-black-200&quot;
+                          &gt;
+                            &lt;i
+                              class&#x3D;&quot;fa fa-circle text-dark text-md/normal&quot;
+                            &gt;&lt;/i&gt;
+                          &lt;/div&gt;
+
+                          &lt;div
+                            class&#x3D;&quot;text-stone-500 font-medium pl-3 text-[0.95rem]&quot;
+                          &gt;
+                            Wilson Mutsami - Upload completed
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;relative flex items-center mb-7&quot;&gt;
+                          &lt;!--begin::Label--&gt;
+                          &lt;div
+                            class&#x3D;&quot;block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[&#x27;&#x27;] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark&quot;
+                          &gt;
+                            12:30
+                          &lt;/div&gt;
+                          &lt;!--end::Label--&gt;
+
+                          &lt;!--begin::Badge--&gt;
+                          &lt;div
+                            class&#x3D;&quot;shrink-0 bg-orange-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-orange-200&quot;
+                          &gt;
+                            &lt;i
+                              class&#x3D;&quot;fa fa-circle text-danger text-md/normal&quot;
+                            &gt;&lt;/i&gt;
+                          &lt;/div&gt;
+                          &lt;!--end::Badge--&gt;
+
+                          &lt;!--begin::Content--&gt;
+                          &lt;div class&#x3D;&quot;flex items-center&quot;&gt;
+                            &lt;svg
+                              class&#x3D;&quot;text-warning&quot;
+                              xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                              fill&#x3D;&quot;none&quot;
+                              viewBox&#x3D;&quot;0 0 24 24&quot;
+                              stroke-width&#x3D;&quot;1.5&quot;
+                              stroke&#x3D;&quot;currentColor&quot;
+                              class&#x3D;&quot;w-6 h-6&quot;
+                            &gt;
+                              &lt;path
+                                stroke-linecap&#x3D;&quot;round&quot;
+                                stroke-linejoin&#x3D;&quot;round&quot;
+                                d&#x3D;&quot;M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z&quot;
+                              /&gt;
+                            &lt;/svg&gt;
+                            &lt;span class&#x3D;&quot;px-3 font-semibold text-warning&quot;
+                              &gt;Wilson Mutsami +10
+                            &lt;/span&gt;
+                          &lt;/div&gt;
+                          &lt;!--end::Content--&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;relative flex items-center mb-7&quot;&gt;
+                          &lt;!--begin::Label--&gt;
+                          &lt;div
+                            class&#x3D;&quot;block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[&#x27;&#x27;] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark&quot;
+                          &gt;
+                            15:45
+                          &lt;/div&gt;
+                          &lt;!--end::Label--&gt;
+
+                          &lt;!--begin::Badge--&gt;
+                          &lt;div
+                            class&#x3D;&quot;shrink-0 bg-blue-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-blue-200&quot;
+                          &gt;
+                            &lt;i
+                              class&#x3D;&quot;fa fa-circle text-info text-md/normal&quot;
+                            &gt;&lt;/i&gt;
+                          &lt;/div&gt;
+                          &lt;!--end::Badge--&gt;
+
+                          &lt;!--begin::Content--&gt;
+                          &lt;div
+                            class&#x3D;&quot;px-3 font-semibold text-secondary-inverse grow&quot;
+                          &gt;
+                            +12
+                            &lt;a class&#x3D;&quot;text-primary&quot; href&#x3D;&quot;javascript:void(0)&quot;
+                              &gt;New members
+                            &lt;/a&gt;
+                            &lt;span&gt;&lt;/span&gt;
+                          &lt;/div&gt;
+                          &lt;!--end::Content--&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;relative flex items-start mb-7&quot;&gt;
+                          &lt;div
+                            class&#x3D;&quot;block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[&#x27;&#x27;] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark&quot;
+                          &gt;
+                            17:30
+                          &lt;/div&gt;
+
+                          &lt;div
+                            class&#x3D;&quot;shrink-0 bg-black-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-black-200&quot;
+                          &gt;
+                            &lt;i
+                              class&#x3D;&quot;fa fa-circle text-primary text-md/normal&quot;
+                            &gt;&lt;/i&gt;
+                          &lt;/div&gt;
+
+                          &lt;div
+                            class&#x3D;&quot;text-stone-500 font-medium pl-3 text-[0.95rem]&quot;
+                          &gt;
+                            93 albums edited
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;relative flex items-center mb-7&quot;&gt;
+                          &lt;!--begin::Label--&gt;
+                          &lt;div
+                            class&#x3D;&quot;block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[&#x27;&#x27;] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark&quot;
+                          &gt;
+                            20:15
+                          &lt;/div&gt;
+                          &lt;!--end::Label--&gt;
+
+                          &lt;!--begin::Badge--&gt;
+                          &lt;div
+                            class&#x3D;&quot;shrink-0 bg-green-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-green-200&quot;
+                          &gt;
+                            &lt;i
+                              class&#x3D;&quot;fa fa-circle text-dark text-md/normal&quot;
+                            &gt;&lt;/i&gt;
+                          &lt;/div&gt;
+                          &lt;!--end::Badge--&gt;
+
+                          &lt;!--begin::Content--&gt;
+                          &lt;div
+                            class&#x3D;&quot;px-3 font-medium text-secondary-inverse grow&quot;
+                          &gt;
+                            +3
+                            &lt;a class&#x3D;&quot;text-green-400&quot; href&#x3D;&quot;javascript:void(0)&quot;
+                              &gt;Reactivated members&lt;/a
+                            &gt;
+                          &lt;/div&gt;
+                          &lt;!--end::Content--&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;relative flex items-start mb-7&quot;&gt;
+                          &lt;div
+                            class&#x3D;&quot;block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[&#x27;&#x27;] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark&quot;
+                          &gt;
+                            22:00
+                          &lt;/div&gt;
+
+                          &lt;div
+                            class&#x3D;&quot;shrink-0 bg-black-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-black-200&quot;
+                          &gt;
+                            &lt;i
+                              class&#x3D;&quot;fa fa-circle text-info text-md/normal&quot;
+                            &gt;&lt;/i&gt;
+                          &lt;/div&gt;
+
+                          &lt;div
+                            class&#x3D;&quot;text-stone-500 font-medium pl-3 text-[0.95rem]&quot;
+                          &gt;
+                            System reboot
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- end card body  --&gt;
+                  &lt;/div&gt;
+                  &lt;div
+                    class&#x3D;&quot;relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30&quot;
+                  &gt;
+                    &lt;!-- card header --&gt;
+                    &lt;div
+                      class&#x3D;&quot;px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent&quot;
+                    &gt;
+                      &lt;div class&#x3D;&quot;flex flex-col m-2 ml-0&quot;&gt;
+                        &lt;!--begin::Amount--&gt;
+                        &lt;span
+                          class&#x3D;&quot;text-5xl/none tracking-[-0.115rem] font-semibold text-dark mr-2&quot;
+                          &gt;102&lt;/span
+                        &gt;
+                        &lt;!--end::Amount--&gt;
+                        &lt;!--begin::Subtitle--&gt;
+                        &lt;span
+                          class&#x3D;&quot;pt-1 font-medium text-secondary-dark text-lg/normal&quot;
+                          &gt;Active users&lt;/span
+                        &gt;
+                        &lt;!--end::Subtitle--&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- card body  --&gt;
+                    &lt;div
+                      class&#x3D;&quot;flex flex-col justify-between flex-auto py-8 px-9&quot;
+                    &gt;
+                      &lt;span
+                        class&#x3D;&quot;block mb-2 font-bold text-lg/normal text-secondary-inverse&quot;
+                        &gt;Top Albums&lt;/span
+                      &gt;
+                      &lt;div class&#x3D;&quot;flex flex-wrap items-center ml-[10px]&quot;&gt;
+                        &lt;!--begin::User--&gt;
+                        &lt;div
+                          class&#x3D;&quot;group inline-block rounded-full relative z-0 hover:z-10 -ml-[10px] transition-all duration-300 ease-in-out cursor-pointer shrink-0&quot;
+                          data-bs-toggle&#x3D;&quot;tooltip&quot;
+                          aria-label&#x3D;&quot;Emma Smith&quot;
+                          data-kt-initialized&#x3D;&quot;1&quot;
+                          data-original-title&#x3D;&quot;&quot;
+                          title&#x3D;&quot;&quot;
+                        &gt;
+                          &lt;img
+                            alt&#x3D;&quot;Pic&quot;
+                            class&#x3D;&quot;w-[35px] h-[35px] rounded-full inline-block shrink-0 border-2 border-white/50&quot;
+                            src&#x3D;&quot;https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar1.jpg&quot;
+                          /&gt;
+                          &lt;span
+                            class&#x3D;&quot;absolute z-10 self-center hidden px-4 py-3 mb-2 text-sm text-center transform -translate-x-1/2 bg-white shadow-sm whitespace-nowrap rounded-2xl left-1/2 bottom-full text-dark group-hover:block&quot;
+                          &gt;
+                            Alex Kenzie
+                          &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!--begin::User--&gt;
+                        &lt;div
+                          class&#x3D;&quot;group inline-block rounded-full relative z-0 hover:z-10 -ml-[10px] transition-all duration-300 ease-in-out cursor-pointer shrink-0&quot;
+                          data-bs-toggle&#x3D;&quot;tooltip&quot;
+                          aria-label&#x3D;&quot;Rudy Stone&quot;
+                          data-kt-initialized&#x3D;&quot;1&quot;
+                          data-original-title&#x3D;&quot;&quot;
+                          title&#x3D;&quot;&quot;
+                        &gt;
+                          &lt;img
+                            alt&#x3D;&quot;Pic&quot;
+                            class&#x3D;&quot;w-[35px] h-[35px] rounded-full inline-block shrink-0 border-2 border-white/50&quot;
+                            src&#x3D;&quot;https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar2.jpg&quot;
+                          /&gt;
+                          &lt;span
+                            class&#x3D;&quot;absolute z-10 self-center hidden px-4 py-3 mb-2 text-sm text-center transform -translate-x-1/2 bg-white shadow-sm whitespace-nowrap rounded-2xl left-1/2 bottom-full text-dark group-hover:block&quot;
+                          &gt;
+                            Roberta Mikolo
+                          &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div
+                          class&#x3D;&quot;group inline-block rounded-full relative z-0 hover:z-10 -ml-[10px] transition-all duration-300 ease-in-out cursor-pointer shrink-0&quot;
+                          data-bs-toggle&#x3D;&quot;tooltip&quot;
+                          data-kt-initialized&#x3D;&quot;1&quot;
+                          data-original-title&#x3D;&quot;&quot;
+                          title&#x3D;&quot;&quot;
+                        &gt;
+                          &lt;span
+                            class&#x3D;&quot;relative flex items-center justify-center text-sm font-semibold bg-info text-white border-2 border-white/50 w-[35px] h-[35px] rounded-full shrink-0&quot;
+                            &gt;S&lt;/span
+                          &gt;
+                          &lt;span
+                            class&#x3D;&quot;absolute z-10 self-center hidden px-4 py-3 mb-2 text-sm text-center transform -translate-x-1/2 bg-white shadow-sm whitespace-nowrap rounded-2xl left-1/2 bottom-full text-dark group-hover:block&quot;
+                          &gt;
+                            Sima Lucas
+                          &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div
+                          class&#x3D;&quot;group inline-block rounded-full relative z-0 hover:z-10 -ml-[10px] transition-all duration-300 ease-in-out cursor-pointer shrink-0&quot;
+                          data-bs-toggle&#x3D;&quot;tooltip&quot;
+                          aria-label&#x3D;&quot;Rudy Stone&quot;
+                          data-kt-initialized&#x3D;&quot;1&quot;
+                          data-original-title&#x3D;&quot;&quot;
+                          title&#x3D;&quot;&quot;
+                        &gt;
+                          &lt;img
+                            alt&#x3D;&quot;Pic&quot;
+                            class&#x3D;&quot;w-[35px] h-[35px] rounded-full inline-block shrink-0 border-2 border-white/50&quot;
+                            src&#x3D;&quot;https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar3.jpg&quot;
+                          /&gt;
+                          &lt;span
+                            class&#x3D;&quot;absolute z-10 self-center hidden px-4 py-3 mb-2 text-sm text-center transform -translate-x-1/2 bg-white shadow-sm whitespace-nowrap rounded-2xl left-1/2 bottom-full text-dark group-hover:block&quot;
+                          &gt;
+                            Bianca Ornos
+                          &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!--begin::User--&gt;
+                        &lt;!--begin::User--&gt;
+                        &lt;div
+                          class&#x3D;&quot;group inline-block rounded-full relative z-0 hover:z-10 -ml-[10px] transition-all duration-300 ease-in-out cursor-pointer shrink-0&quot;
+                          data-bs-toggle&#x3D;&quot;tooltip&quot;
+                          data-kt-initialized&#x3D;&quot;1&quot;
+                          data-original-title&#x3D;&quot;&quot;
+                          title&#x3D;&quot;&quot;
+                        &gt;
+                          &lt;span
+                            class&#x3D;&quot;relative flex items-center justify-center text-sm font-semibold bg-dark text-secondary border-2 border-white/50 w-[35px] h-[35px] rounded-full shrink-0&quot;
+                            &gt;+9&lt;/span
+                          &gt;
+                          &lt;span
+                            class&#x3D;&quot;absolute z-10 self-center hidden px-4 py-3 mb-2 text-sm text-center transform -translate-x-1/2 bg-white shadow-sm whitespace-nowrap rounded-2xl left-1/2 bottom-full text-dark group-hover:block&quot;
+                          &gt;
+                            +9 others
+                          &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!--begin::User--&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- end card body  --&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;app-footer&gt;&lt;/app-footer&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./photo.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="h-screen w-screen flex bg-gray-200">  <!-- container -->  <app-side-nav></app-side-nav>  <div class="w-screen flex flex-col" style="overflow-y: auto">    <link      rel="stylesheet"      href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/riva-dashboard.css"    />    <div class="flex flex-wrap -mx-3 mb-5">      <div class="w-full max-w-full px-3 mb-6 mx-auto">        <div          class="relative flex-[1_auto] flex flex-col break-words min-w-0 bg-clip-border rounded-[.95rem] bg-white m-5"        >          <div            class="relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30"          >            <app-nav-bar></app-nav-bar>            <div              class="w-full px-10 py-6 mx-auto loopple-min-height-78vh text-slate-500"            >              <div class="flex flex-wrap -mx-3 mb-5 removable">                <div                  class="w-full max-w-full px-3 mb-6 lg:w-8/12 sm:flex-none xl:mb-0"                >                  <div                    class="relative flex flex-col break-words min-w-0 bg-clip-border rounded-xl bg-neutral-900 mb-5"                  >                    <!-- card body  -->                    <div                      *ngIf="auth.user$ | async as user; else noUser"                      class="flex-auto block py-8 px-9"                    >                      <div class="m-0 z-20 relative">                        <div                          class="relative z-20 text-3xl font-semibold text-white w-3/4"                        >                          {{ photo.title | titlecase }}                        </div>                        <p class="text-white py-4">                          {{ photo.description }}                        </p>                        <!-- <div class="flex flex-col gap-2 xl:gap-4 sm:flex-row">                            <a                              (click)="scroll(users)"                              class="shrink-0 inline-block text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out text-dark bg-white border-white shadow-none [border:_0] px-5 py-3.5 hover:bg-white/90 active:bg-white focus:bg-white"                              >All Users</a                            >                            <a                              href="javascript:void(0)"                              class="inline-block shrink-0 text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out text-white bg-white/[.15] shadow-none [border:_0] px-5 py-3.5 hover:bg-white/25 active:bg-white/25 focus:bg-white/25"                              >My Account</a                            >                          </div> -->                      </div>                      <img                        src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/bonus.png"                        class="bottom-0 absolute mr-3 end-0 h-[200px] opacity-40 z-10"                        alt=""                      />                    </div>                    <ng-template #noUser>                      <!-- Toast -->                      <div                        class="max-w-xs bg-white border border-gray-200 rounded-xl shadow-lg"                        role="alert"                      >                        <div class="flex items-center p-4">                          <div                            class="animate-spin inline-block size-4 border-[3px] border-current border-t-transparent text-blue-600 rounded-full"                            role="status"                            aria-label="loading"                          >                            <span class="sr-only">Loading...</span>                          </div>                          <p class="ms-3 text-sm text-gray-700">                            Search for user records                          </p>                        </div>                      </div>                      <!-- End Toast -->                    </ng-template>                  </div>                  <div #users>                    <div class="grid grid-col-1 items-center justify-center">                      <img                        class="rounded-xl max-h-[600px] h-auto object-cover"                        [src]="photo.imageUrl"                        alt="Dog"                      />                    </div>                  </div>                </div>                <div                  class="w-full max-w-full px-3 mb-6 lg:w-4/12 sm:flex-none xl:mb-0"                >                  <div                    class="relative flex flex-col min-w-0 break-words bg-gray-100 border-0 bg-clip-border rounded-2xl mb-5"                  >                    <!-- card header -->                    <div                      class="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent"                    >                      <div                        class="flex flex-col items-start justify-center m-2 ml-0 font-medium text-xl/normal text-dark"                      >                        <!--begin::Amount-->                        <span                          class="text-dark text-5xl/none font-semibold mr-2 tracking-[-0.115rem]"                        >                          {{ photo.likes }}                        </span>                        <!--end::Amount-->                        <!--begin::Subtitle-->                        <span class="pt-1 font-medium text-dark text-lg/normal"                          >Likes</span                        >                        <!--end::Subtitle-->                      </div>                    </div>                    <!-- card body  -->                    <div class="flex items-end flex-auto py-8 pt-0 px-9">                      <!--begin::Progress-->                      <div class="flex flex-col items-center w-full mt-3">                        <div                          class="flex justify-between w-full mt-auto mb-2 font-semibold text-dark text-lg/normal"                        >                          <span class="mr-4 text-dark"                            >Storage capacity limit</span                          >                          <span>80%</span>                        </div>                        <div class="mx-3 rounded-2xl h-[8px] w-full bg-white">                          <div                            class="rounded-2xl bg-dark w-[85%] h-[8px]"                          ></div>                        </div>                      </div>                      <!--end::Progress-->                    </div>                    <!-- end card body  -->                  </div>                  <!-- end card body  -->                  <h3 class="font-bold mb-5 text-2xl">Activity</h3>                  <div                    class="relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30 mb-5"                  >                    <!-- card body  -->                    <div class="flex-auto block py-8 pt-6 px-9">                      <div                        class="relative before:content-[\'\'] before:absolute before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark"                      >                        <div class="relative flex items-start mb-7">                          <div                            class="block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[\'\'] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark"                          >                            09:15                          </div>                          <div                            class="shrink-0 bg-black-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-black-200"                          >                            <i                              class="fa fa-circle text-dark text-md/normal"                            ></i>                          </div>                          <div                            class="text-stone-500 font-medium pl-3 text-[0.95rem]"                          >                            Wilson Mutsami - Upload completed                          </div>                        </div>                        <div class="relative flex items-center mb-7">                          <!--begin::Label-->                          <div                            class="block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[\'\'] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark"                          >                            12:30                          </div>                          <!--end::Label-->                          <!--begin::Badge-->                          <div                            class="shrink-0 bg-orange-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-orange-200"                          >                            <i                              class="fa fa-circle text-danger text-md/normal"                            ></i>                          </div>                          <!--end::Badge-->                          <!--begin::Content-->                          <div class="flex items-center">                            <svg                              class="text-warning"                              xmlns="http://www.w3.org/2000/svg"                              fill="none"                              viewBox="0 0 24 24"                              stroke-width="1.5"                              stroke="currentColor"                              class="w-6 h-6"                            >                              <path                                stroke-linecap="round"                                stroke-linejoin="round"                                d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"                              />                            </svg>                            <span class="px-3 font-semibold text-warning"                              >Wilson Mutsami +10                            </span>                          </div>                          <!--end::Content-->                        </div>                        <div class="relative flex items-center mb-7">                          <!--begin::Label-->                          <div                            class="block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[\'\'] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark"                          >                            15:45                          </div>                          <!--end::Label-->                          <!--begin::Badge-->                          <div                            class="shrink-0 bg-blue-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-blue-200"                          >                            <i                              class="fa fa-circle text-info text-md/normal"                            ></i>                          </div>                          <!--end::Badge-->                          <!--begin::Content-->                          <div                            class="px-3 font-semibold text-secondary-inverse grow"                          >                            +12                            <a class="text-primary" href="javascript:void(0)"                              >New members                            </a>                            <span></span>                          </div>                          <!--end::Content-->                        </div>                        <div class="relative flex items-start mb-7">                          <div                            class="block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[\'\'] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark"                          >                            17:30                          </div>                          <div                            class="shrink-0 bg-black-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-black-200"                          >                            <i                              class="fa fa-circle text-primary text-md/normal"                            ></i>                          </div>                          <div                            class="text-stone-500 font-medium pl-3 text-[0.95rem]"                          >                            93 albums edited                          </div>                        </div>                        <div class="relative flex items-center mb-7">                          <!--begin::Label-->                          <div                            class="block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[\'\'] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark"                          >                            20:15                          </div>                          <!--end::Label-->                          <!--begin::Badge-->                          <div                            class="shrink-0 bg-green-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-green-200"                          >                            <i                              class="fa fa-circle text-dark text-md/normal"                            ></i>                          </div>                          <!--end::Badge-->                          <!--begin::Content-->                          <div                            class="px-3 font-medium text-secondary-inverse grow"                          >                            +3                            <a class="text-green-400" href="javascript:void(0)"                              >Reactivated members</a                            >                          </div>                          <!--end::Content-->                        </div>                        <div class="relative flex items-start mb-7">                          <div                            class="block relative shrink-0 w-[50px] text-secondary-inverse font-semibold text-md/normal before:absolute before:content-[\'\'] before:left-[51px] before:w-[3px] before:inset-y-0 before:bg-light-dark"                          >                            22:00                          </div>                          <div                            class="shrink-0 bg-black-100 w-4 h-4 rounded-full flex items-center justify-center relative z-10 mt-px -ml-2 p-[3px] border-[6px] border-solid border-black-200"                          >                            <i                              class="fa fa-circle text-info text-md/normal"                            ></i>                          </div>                          <div                            class="text-stone-500 font-medium pl-3 text-[0.95rem]"                          >                            System reboot                          </div>                        </div>                      </div>                    </div>                    <!-- end card body  -->                  </div>                  <div                    class="relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30"                  >                    <!-- card header -->                    <div                      class="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent"                    >                      <div class="flex flex-col m-2 ml-0">                        <!--begin::Amount-->                        <span                          class="text-5xl/none tracking-[-0.115rem] font-semibold text-dark mr-2"                          >102</span                        >                        <!--end::Amount-->                        <!--begin::Subtitle-->                        <span                          class="pt-1 font-medium text-secondary-dark text-lg/normal"                          >Active users</span                        >                        <!--end::Subtitle-->                      </div>                    </div>                    <!-- card body  -->                    <div                      class="flex flex-col justify-between flex-auto py-8 px-9"                    >                      <span                        class="block mb-2 font-bold text-lg/normal text-secondary-inverse"                        >Top Albums</span                      >                      <div class="flex flex-wrap items-center ml-[10px]">                        <!--begin::User-->                        <div                          class="group inline-block rounded-full relative z-0 hover:z-10 -ml-[10px] transition-all duration-300 ease-in-out cursor-pointer shrink-0"                          data-bs-toggle="tooltip"                          aria-label="Emma Smith"                          data-kt-initialized="1"                          data-original-title=""                          title=""                        >                          <img                            alt="Pic"                            class="w-[35px] h-[35px] rounded-full inline-block shrink-0 border-2 border-white/50"                            src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar1.jpg"                          />                          <span                            class="absolute z-10 self-center hidden px-4 py-3 mb-2 text-sm text-center transform -translate-x-1/2 bg-white shadow-sm whitespace-nowrap rounded-2xl left-1/2 bottom-full text-dark group-hover:block"                          >                            Alex Kenzie                          </span>                        </div>                        <!--begin::User-->                        <div                          class="group inline-block rounded-full relative z-0 hover:z-10 -ml-[10px] transition-all duration-300 ease-in-out cursor-pointer shrink-0"                          data-bs-toggle="tooltip"                          aria-label="Rudy Stone"                          data-kt-initialized="1"                          data-original-title=""                          title=""                        >                          <img                            alt="Pic"                            class="w-[35px] h-[35px] rounded-full inline-block shrink-0 border-2 border-white/50"                            src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar2.jpg"                          />                          <span                            class="absolute z-10 self-center hidden px-4 py-3 mb-2 text-sm text-center transform -translate-x-1/2 bg-white shadow-sm whitespace-nowrap rounded-2xl left-1/2 bottom-full text-dark group-hover:block"                          >                            Roberta Mikolo                          </span>                        </div>                        <div                          class="group inline-block rounded-full relative z-0 hover:z-10 -ml-[10px] transition-all duration-300 ease-in-out cursor-pointer shrink-0"                          data-bs-toggle="tooltip"                          data-kt-initialized="1"                          data-original-title=""                          title=""                        >                          <span                            class="relative flex items-center justify-center text-sm font-semibold bg-info text-white border-2 border-white/50 w-[35px] h-[35px] rounded-full shrink-0"                            >S</span                          >                          <span                            class="absolute z-10 self-center hidden px-4 py-3 mb-2 text-sm text-center transform -translate-x-1/2 bg-white shadow-sm whitespace-nowrap rounded-2xl left-1/2 bottom-full text-dark group-hover:block"                          >                            Sima Lucas                          </span>                        </div>                        <div                          class="group inline-block rounded-full relative z-0 hover:z-10 -ml-[10px] transition-all duration-300 ease-in-out cursor-pointer shrink-0"                          data-bs-toggle="tooltip"                          aria-label="Rudy Stone"                          data-kt-initialized="1"                          data-original-title=""                          title=""                        >                          <img                            alt="Pic"                            class="w-[35px] h-[35px] rounded-full inline-block shrink-0 border-2 border-white/50"                            src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar3.jpg"                          />                          <span                            class="absolute z-10 self-center hidden px-4 py-3 mb-2 text-sm text-center transform -translate-x-1/2 bg-white shadow-sm whitespace-nowrap rounded-2xl left-1/2 bottom-full text-dark group-hover:block"                          >                            Bianca Ornos                          </span>                        </div>                        <!--begin::User-->                        <!--begin::User-->                        <div                          class="group inline-block rounded-full relative z-0 hover:z-10 -ml-[10px] transition-all duration-300 ease-in-out cursor-pointer shrink-0"                          data-bs-toggle="tooltip"                          data-kt-initialized="1"                          data-original-title=""                          title=""                        >                          <span                            class="relative flex items-center justify-center text-sm font-semibold bg-dark text-secondary border-2 border-white/50 w-[35px] h-[35px] rounded-full shrink-0"                            >+9</span                          >                          <span                            class="absolute z-10 self-center hidden px-4 py-3 mb-2 text-sm text-center transform -translate-x-1/2 bg-white shadow-sm whitespace-nowrap rounded-2xl left-1/2 bottom-full text-dark group-hover:block"                          >                            +9 others                          </span>                        </div>                        <!--begin::User-->                      </div>                    </div>                    <!-- end card body  -->                  </div>                </div>              </div>            </div>          </div>        </div>      </div>    </div>    <app-footer></app-footer>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AlbumComponent', 'selector': 'app-album'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'PhotoComponent', 'selector': 'app-photo'},{'name': 'SideNavComponent', 'selector': 'app-side-nav'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VerificationComponent', 'selector': 'app-verification'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'PhotoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PhotoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
