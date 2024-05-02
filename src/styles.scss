@@ -3,5 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 .custom-input {
-    border-color: transparent !important;
+  border-color: transparent !important;
+}
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }

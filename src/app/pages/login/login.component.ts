@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -6,6 +6,9 @@ import {
   ReactiveFormsModule,
   FormBuilder,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 /* 
  Regex expression to determine the
@@ -21,22 +24,23 @@ export const StrongPasswordRegx: RegExp =
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
-  myForm: FormGroup = new FormGroup({}); // Initialize with an empty FormGroup
-
-/**
- * Password provided by user on the registration/signup form
- */
-  new_password: string | undefined; 
+  user!: Observable<any>;
+  /**
+   * Password provided by user on the registration/signup form
+   */
+  new_password: string | undefined;
 
   /**
-   * 
+   *
    */
   confirmPassword: string | undefined;
-  
+
   /**
    * @ignore
    */
+
+  signin_email_bool: boolean = true;
+  signup_success_bool: boolean = false;
 
   uppercase: boolean = true;
   lowercase: boolean = true;
@@ -48,7 +52,7 @@ export class LoginComponent implements OnInit {
   registration_form_valid_bool: boolean = false;
 
   /**
-   * Defines a FormGroup named registrationForm to encapsulate the registration form fields 
+   * Defines a FormGroup named registrationForm to encapsulate the registration form fields
    */
 
   registrationForm: FormGroup = new FormGroup({
@@ -59,8 +63,34 @@ export class LoginComponent implements OnInit {
   });
 
   /**
-   * This method retrieves the FormControl instance corresponding to the registration email field 
-   * and applies a regular expression pattern check to validate if the email is in a valid format then 
+   * Defines a FormGroup named signinForm to encapsulate the signin form fields
+   */
+  signinForm: FormGroup = new FormGroup({
+    signin_email: new FormControl<string>(''),
+    password: new FormControl<string>(''),
+  });
+
+  /**
+   * This method retrieves the FormControl instance corresponding to the signin email field
+   * and applies a regular expression pattern check to validate if the email is in a valid format then
+   * returns the FormControl instance representing the registration email field.
+   */
+
+  get signinEmailField() {
+    const value = this.signinForm.controls['signin_email'].value;
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (regex.test(value)) {
+      this.signin_email_bool = false;
+    } else {
+      this.signin_email_bool = true;
+    }
+    ``;
+    return this.signinForm.controls['signin_email'];
+  }
+
+  /**
+   * This method retrieves the FormControl instance corresponding to the registration email field
+   * and applies a regular expression pattern check to validate if the email is in a valid format then
    * returns the FormControl instance representing the registration email field.
    */
 
@@ -72,13 +102,12 @@ export class LoginComponent implements OnInit {
     } else {
       this.registration_email_bool = true;
     }
-    ``;
     return this.registrationForm.controls['registration_email'];
   }
 
   /**
-   * This method retrieves the FormControl instance corresponding to the new password field 
-   * and applies regular expression pattern checks to validate if the password is in a valid format then 
+   * This method retrieves the FormControl instance corresponding to the new password field
+   * and applies regular expression pattern checks to validate if the password is in a valid format then
    * returns the FormControl instance representing the new password field.
    */
 
@@ -136,29 +165,40 @@ export class LoginComponent implements OnInit {
    * @ignore
    */
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    protected auth: AuthService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
-    this.myForm = this.formBuilder.group({
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/),
-        ],
-      ],
+    this.auth.user$.subscribe((e) => {
+      this.user = e;
+
+      return e;
     });
   }
 
-  submitForm() {
-    if (this.myForm.valid) {
-      console.log('Form submitted successfully!', this.myForm.value);
-      // Perform further actions like sending the form data to server
+  add(no1:any,no2:any){
+    return no1 + no2
+  }
+
+  submitSigninForm() {
+    if (!this.signin_email_bool) {
+      console.log('Form submitted successfully!', this.signinForm.value);
+      this.auth
+        .signIn(
+          this.signinForm.value.signin_email,
+          this.signinForm.value.password,
+        )
+        .then((e) => {
+          console.log('Sign In', e);
+          this.router.navigate(['/']);
+        });
     } else {
       console.log('Form invalid. Please fill out the form correctly.');
     }
   }
-
 
   /**
    * This method is triggered when submitting the registration form.
@@ -178,11 +218,24 @@ export class LoginComponent implements OnInit {
       this.registrationForm.valid
     ) {
       console.log('Form submitted successfully!', this.registrationForm.value);
+
+      this.auth
+        .signUp(
+          this.registrationForm.value.registration_email,
+          this.registrationForm.value.new_password,
+        )
+        .then((e) => {
+          console.log('Sign Up', e);
+          this.signup_success_bool = true;
+          // window.alert(
+          //   'Account registration was succefull, proceed to signing in',
+          // );
+          this.router.navigate(['/']);
+        });
     } else {
       console.log('Form invalid. Please fill out the form correctly.');
     }
   }
-
 
   /**
    *  This function scrolls the page to a specified HTMLElement smoothly.
@@ -195,7 +248,6 @@ export class LoginComponent implements OnInit {
   scroll(el: HTMLElement) {
     el.scrollIntoView({ behavior: 'smooth' });
   }
-
 
   /**
    * This method checks if the new password and confirm password fields match.
