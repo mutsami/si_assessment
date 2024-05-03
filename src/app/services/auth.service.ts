@@ -177,7 +177,7 @@ export class AuthService {
   }
 
   getUsers() {
-    this.userCollection = this.afs.collection('users');
+    this.userCollection = this.afs.collection('users', ref => ref.where('uid', '==', 'T8SbSxPiMzZBFjljvkAEWaZDTn52'));
     return this.userCollection.snapshotChanges().pipe(
       map((actions) => {
         return actions.map((a) => {
