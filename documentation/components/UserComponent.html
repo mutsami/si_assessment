@@ -1,0 +1,1778 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>si-assessment documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">si-assessment documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UserComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/user/user/user.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./user.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#albums" >albums</a>
+                            </li>
+                            <li>
+                                <a href="#albumsLoaded" >albumsLoaded</a>
+                            </li>
+                            <li>
+                                <a href="#featuredAlbums" >featuredAlbums</a>
+                            </li>
+                            <li>
+                                <a href="#featuredAlbumsLoaded" >featuredAlbumsLoaded</a>
+                            </li>
+                            <li>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                <a href="#loaded" >loaded</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: ActivatedRoute, auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/user/user/user.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/app/pages/user/user/user.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="albums"></a>
+                    <span class="name">
+                        <span ><b>albums</b></span>
+                        <a href="#albums"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/user/user/user.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="albumsLoaded"></a>
+                    <span class="name">
+                        <span ><b>albumsLoaded</b></span>
+                        <a href="#albumsLoaded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/user/user/user.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="featuredAlbums"></a>
+                    <span class="name">
+                        <span ><b>featuredAlbums</b></span>
+                        <a href="#featuredAlbums"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/user/user/user.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="featuredAlbumsLoaded"></a>
+                    <span class="name">
+                        <span ><b>featuredAlbumsLoaded</b></span>
+                        <a href="#featuredAlbumsLoaded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/user/user/user.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/pages/user/user/user.component.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loaded"></a>
+                    <span class="name">
+                        <span ><b>loaded</b></span>
+                        <a href="#loaded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/user/user/user.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/user/user/user.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { AuthService } from &#x27;src/app/services/auth.service&#x27;;
+
+@Component({
+  selector: &#x27;app-user&#x27;,
+  templateUrl: &#x27;./user.component.html&#x27;,
+  styleUrls: [&#x27;./user.component.scss&#x27;],
+})
+export class UserComponent implements OnInit{
+  id: any;
+  user: any;
+
+  albums: any;
+  featuredAlbums: any;
+
+  loaded: boolean &#x3D; false;
+  albumsLoaded: boolean &#x3D; false;
+  featuredAlbumsLoaded: boolean &#x3D; false;
+
+  constructor(
+    private route: ActivatedRoute,
+    protected auth: AuthService,
+  ) {
+    
+  }
+  ngOnInit(): void {
+    this.id &#x3D; this.route.snapshot.paramMap.get(&#x27;id&#x27;);
+
+    if (this.id) {
+      this.auth.getUser(this.id).subscribe((e) &#x3D;&gt; {
+        this.user &#x3D; e;
+
+        this.loaded &#x3D; true;
+      });
+
+      this.auth.getUserAlbums(this.id).subscribe((e) &#x3D;&gt; {
+        this.albums &#x3D; e;
+
+        this.albumsLoaded &#x3D; true;
+      });
+
+      this.auth.getFeaturedUserAlbums(this.id).subscribe((e) &#x3D;&gt; {
+        console.log(&#x27;Featured Users Albums&#x27;, e);
+
+        this.featuredAlbums &#x3D; e;
+
+        this.featuredAlbumsLoaded &#x3D; true;
+      });
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;h-screen w-screen flex bg-gray-200&quot;&gt;
+  &lt;!-- container --&gt;
+  &lt;app-side-nav&gt;&lt;/app-side-nav&gt;
+  &lt;div class&#x3D;&quot;w-screen flex flex-col&quot; style&#x3D;&quot;overflow-y: auto&quot;&gt;
+    &lt;link
+      rel&#x3D;&quot;stylesheet&quot;
+      href&#x3D;&quot;https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/riva-dashboard.css&quot;
+    /&gt;
+    &lt;div class&#x3D;&quot;flex flex-wrap -mx-3 mb-5&quot;&gt;
+      &lt;div class&#x3D;&quot;w-full max-w-full px-3 mb-6 mx-auto&quot;&gt;
+        &lt;div
+          class&#x3D;&quot;relative flex-[1_auto] flex flex-col break-words min-w-0 bg-clip-border rounded-[.95rem] bg-white m-5&quot;
+        &gt;
+          &lt;div
+            class&#x3D;&quot;relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30&quot;
+          &gt;
+            &lt;app-nav-bar&gt;&lt;/app-nav-bar&gt;
+            &lt;div
+              class&#x3D;&quot;w-full px-10 py-6 mx-auto loopple-min-height-78vh text-slate-500&quot;
+            &gt;
+              &lt;div class&#x3D;&quot;flex flex-wrap -mx-3 mb-5 removable&quot;&gt;
+                &lt;div
+                  class&#x3D;&quot;w-full max-w-full px-3 mb-6 lg:w-8/12 sm:flex-none xl:mb-0&quot;
+                &gt;
+                  &lt;div class&#x3D;&quot;container&quot;&gt;
+                    &lt;div class&#x3D;&quot;w-full mx-auto grid gap-4 grid-cols-1&quot;&gt;
+                      &lt;div *ngIf&#x3D;&quot;!loaded&quot; role&#x3D;&quot;status&quot; class&#x3D;&quot;animate-pulse&quot;&gt;
+                        &lt;div
+                          class&#x3D;&quot;h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 max-w-[640px] mb-2.5 mx-auto&quot;
+                        &gt;&lt;/div&gt;
+                        &lt;div
+                          class&#x3D;&quot;h-2.5 mx-auto bg-gray-300 rounded-full dark:bg-gray-700 max-w-[540px]&quot;
+                        &gt;&lt;/div&gt;
+                        &lt;div class&#x3D;&quot;flex items-center justify-center mt-4&quot;&gt;
+                          &lt;svg
+                            class&#x3D;&quot;w-8 h-8 text-gray-200 dark:text-gray-700 me-4&quot;
+                            aria-hidden&#x3D;&quot;true&quot;
+                            xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                            fill&#x3D;&quot;currentColor&quot;
+                            viewBox&#x3D;&quot;0 0 20 20&quot;
+                          &gt;
+                            &lt;path
+                              d&#x3D;&quot;M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z&quot;
+                            /&gt;
+                          &lt;/svg&gt;
+                          &lt;div
+                            class&#x3D;&quot;w-20 h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 me-3&quot;
+                          &gt;&lt;/div&gt;
+                          &lt;div
+                            class&#x3D;&quot;w-24 h-2 bg-gray-200 rounded-full dark:bg-gray-700&quot;
+                          &gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;span class&#x3D;&quot;sr-only&quot;&gt;Loading...&lt;/span&gt;
+                      &lt;/div&gt;
+
+                      &lt;!-- profile card --&gt;
+                      &lt;div
+                        *ngIf&#x3D;&quot;loaded&quot;
+                        class&#x3D;&quot;flex flex-col sticky top-0 z-10&quot;
+                      &gt;
+                        &lt;div
+                          class&#x3D;&quot;relative flex flex-col break-words min-w-0 bg-clip-border rounded-xl bg-[#DCF5E8]&quot;
+                        &gt;
+                          &lt;!-- card body  --&gt;
+                          &lt;div class&#x3D;&quot;flex-auto block py-8 px-9&quot;&gt;
+                            &lt;div class&#x3D;&quot;m-0 z-20 relative&quot;&gt;
+                              &lt;div class&#x3D;&quot;flex-none sm:flex&quot;&gt;
+                                &lt;div class&#x3D;&quot;inline-flex w-32 h-32&quot;&gt;
+                                  &lt;img
+                                    [src]&#x3D;&quot;user.photoURL&quot;
+                                    alt&#x3D;&quot;aji&quot;
+                                    class&#x3D;&quot;relative p-1 w-32 h-32 object-cover rounded-2xl&quot;
+                                  /&gt;
+                                  &lt;span
+                                    class&#x3D;&quot;absolute w-32 h-32 inline-flex border-2 rounded-2xl border-green-400 opacity-75&quot;
+                                  &gt;&lt;/span&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;flex-auto sm:ml-5 justify-evenly&quot;&gt;
+                                  &lt;div
+                                    class&#x3D;&quot;flex items-center justify-between sm:mt-2&quot;
+                                  &gt;
+                                    &lt;div class&#x3D;&quot;flex items-center&quot;&gt;
+                                      &lt;div class&#x3D;&quot;flex flex-col&quot;&gt;
+                                        &lt;div
+                                          class&#x3D;&quot;relative z-20 text-3xl font-semibold text-[#60a682] w-full&quot;
+                                        &gt;
+                                          {{
+                                            user.displayName
+                                              ? (user.displayName | titlecase)
+                                              : (user.email | titlecase)
+                                          }}
+                                        &lt;/div&gt;
+                                        &lt;div
+                                          class&#x3D;&quot;flex-auto text-gray-400 my-1&quot;
+                                        &gt;
+                                          &lt;span class&#x3D;&quot;mr-3 mb-7 text-black&quot;
+                                            &gt;UI/UX Designer&lt;/span
+                                          &gt;&lt;span
+                                            class&#x3D;&quot;mr-3 border-r border-gray-600 max-h-0&quot;
+                                          &gt;&lt;/span
+                                          &gt;&lt;span&gt;Nairobi, KE&lt;/span&gt;
+                                        &lt;/div&gt;
+                                      &lt;/div&gt;
+                                    &lt;/div&gt;
+                                  &lt;/div&gt;
+                                  &lt;div class&#x3D;&quot;flex pt-2 text-sm text-black&quot;&gt;
+                                    &lt;div
+                                      class&#x3D;&quot;flex-1 inline-flex items-center&quot;
+                                    &gt;
+                                      &lt;svg
+                                        xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                        class&#x3D;&quot;h-5 w-5 mr-2&quot;
+                                        viewBox&#x3D;&quot;0 0 20 20&quot;
+                                        fill&#x3D;&quot;currentColor&quot;
+                                      &gt;
+                                        &lt;path
+                                          d&#x3D;&quot;M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z&quot;
+                                        &gt;&lt;/path&gt;
+                                      &lt;/svg&gt;
+                                      &lt;p class&#x3D;&quot;&quot;&gt;1.2k Followers&lt;/p&gt;
+                                      &amp;nbsp; &amp;nbsp;
+                                      &lt;svg
+                                        xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                        fill&#x3D;&quot;none&quot;
+                                        viewBox&#x3D;&quot;0 0 24 24&quot;
+                                        stroke-width&#x3D;&quot;1.5&quot;
+                                        stroke&#x3D;&quot;currentColor&quot;
+                                        class&#x3D;&quot;w-6 h-6&quot;
+                                      &gt;
+                                        &lt;path
+                                          stroke-linecap&#x3D;&quot;round&quot;
+                                          stroke-linejoin&#x3D;&quot;round&quot;
+                                          d&#x3D;&quot;m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z&quot;
+                                        /&gt;
+                                      &lt;/svg&gt;
+
+                                      &amp;nbsp;
+
+                                      &lt;p class&#x3D;&quot;&quot;&gt;
+                                        {{ user.no_of_albums }} Albums
+                                      &lt;/p&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;a
+                                      class&#x3D;&quot;shrink-0 inline-block text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out text-dark bg-green-400 border-white shadow-none [border:_0] px-5 py-3.5 hover:bg-green-500 text-white active:bg-white focus:bg-white&quot;
+                                      &gt;Follow&lt;/a
+                                    &gt;
+                                  &lt;/div&gt;
+                                &lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;img
+                              src&#x3D;&quot;https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/bonus.png&quot;
+                              class&#x3D;&quot;bottom-0 absolute mr-3 end-0 h-[200px] z-10&quot;
+                              alt&#x3D;&quot;&quot;
+                            /&gt;
+                          &lt;/div&gt;
+                          &lt;ng-template #noUser&gt;
+                            &lt;!-- Toast --&gt;
+                            &lt;div
+                              class&#x3D;&quot;max-w-xs bg-white border border-gray-200 rounded-xl shadow-lg&quot;
+                              role&#x3D;&quot;alert&quot;
+                            &gt;
+                              &lt;div class&#x3D;&quot;flex items-center p-4&quot;&gt;
+                                &lt;div
+                                  class&#x3D;&quot;animate-spin inline-block size-4 border-[3px] border-current border-t-transparent text-blue-600 rounded-full&quot;
+                                  role&#x3D;&quot;status&quot;
+                                  aria-label&#x3D;&quot;loading&quot;
+                                &gt;
+                                  &lt;span class&#x3D;&quot;sr-only&quot;&gt;Loading...&lt;/span&gt;
+                                &lt;/div&gt;
+                                &lt;p class&#x3D;&quot;ms-3 text-sm text-gray-700&quot;&gt;
+                                  Search for user records
+                                &lt;/p&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;!-- End Toast --&gt;
+                          &lt;/ng-template&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                      &lt;div class&#x3D;&quot;flex items-center lg:shrink-0 lg:flex-nowrap&quot;&gt;
+                        &lt;div
+                          class&#x3D;&quot;relative flex items-center lg:ml-4 sm:mr-0 mr-2&quot;
+                        &gt;
+                          &lt;span
+                            class&#x3D;&quot;absolute ml-4 leading-none -translate-y-1/2 top-1/2 text-muted&quot;
+                          &gt;
+                            &lt;svg
+                              xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                              fill&#x3D;&quot;none&quot;
+                              viewBox&#x3D;&quot;0 0 24 24&quot;
+                              stroke-width&#x3D;&quot;1.5&quot;
+                              stroke&#x3D;&quot;currentColor&quot;
+                              class&#x3D;&quot;w-6 h-6&quot;
+                            &gt;
+                              &lt;path
+                                stroke-linecap&#x3D;&quot;round&quot;
+                                stroke-linejoin&#x3D;&quot;round&quot;
+                                d&#x3D;&quot;M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z&quot;
+                              &gt;&lt;/path&gt;
+                            &lt;/svg&gt;
+                          &lt;/span&gt;
+                          &lt;input
+                            class&#x3D;&quot;block w-full py-3 pl-12 pr-4 text-base font-medium leading-normal bg-white border border-solid outline-none appearance-none placeholder:text-secondary-dark peer text-stone-500 border-stone-200 bg-clip-padding rounded-2xl&quot;
+                            placeholder&#x3D;&quot;Search...&quot;
+                            type&#x3D;&quot;text&quot;
+                          /&gt;
+                          &lt;span
+                            onclick&#x3D;&quot;(() &#x3D;&gt; { this.previousElementSibling.value&#x3D;&#x27;&#x27;})()&quot;
+                            class&#x3D;&quot;absolute right-0 left-auto mr-4 leading-none -translate-y-1/2 peer-placeholder-shown:hidden top-1/2 hover:text-primary text-muted&quot;
+                          &gt;
+                            &lt;svg
+                              xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                              fill&#x3D;&quot;none&quot;
+                              viewBox&#x3D;&quot;0 0 24 24&quot;
+                              stroke-width&#x3D;&quot;1.5&quot;
+                              stroke&#x3D;&quot;currentColor&quot;
+                              class&#x3D;&quot;w-6 h-6&quot;
+                            &gt;
+                              &lt;path
+                                stroke-linecap&#x3D;&quot;round&quot;
+                                stroke-linejoin&#x3D;&quot;round&quot;
+                                d&#x3D;&quot;M6 18L18 6M6 6l12 12&quot;
+                              &gt;&lt;/path&gt;
+                            &lt;/svg&gt;
+                          &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div
+                          class&#x3D;&quot;relative lg:hidden flex items-center sm:ml-2 ml-auto&quot;
+                        &gt;
+                          &lt;a
+                            href&#x3D;&quot;javascript:void(0)&quot;
+                            class&#x3D;&quot;flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary&quot;
+                            onclick&#x3D;&quot;(function(){document.querySelector(&#x27;.group\\/sidebar&#x27;).classList.toggle(&#x27;-translate-x-full&#x27;);})();&quot;
+                          &gt;
+                            &lt;svg
+                              xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                              fill&#x3D;&quot;none&quot;
+                              viewBox&#x3D;&quot;0 0 24 24&quot;
+                              stroke-width&#x3D;&quot;1.5&quot;
+                              stroke&#x3D;&quot;currentColor&quot;
+                              class&#x3D;&quot;w-6 h-6&quot;
+                            &gt;
+                              &lt;path
+                                stroke-linecap&#x3D;&quot;round&quot;
+                                stroke-linejoin&#x3D;&quot;round&quot;
+                                d&#x3D;&quot;M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5&quot;
+                              &gt;&lt;/path&gt;
+                            &lt;/svg&gt;
+                          &lt;/a&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;relative flex items-center ml-2 lg:ml-4&quot;&gt;
+                          &lt;a
+                            href&#x3D;&quot;javascript:void(0)&quot;
+                            class&#x3D;&quot;flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary&quot;
+                          &gt;
+                            &lt;svg
+                              xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                              fill&#x3D;&quot;none&quot;
+                              viewBox&#x3D;&quot;0 0 24 24&quot;
+                              stroke-width&#x3D;&quot;1.5&quot;
+                              stroke&#x3D;&quot;currentColor&quot;
+                              class&#x3D;&quot;w-6 h-6&quot;
+                            &gt;
+                              &lt;path
+                                stroke-linecap&#x3D;&quot;round&quot;
+                                stroke-linejoin&#x3D;&quot;round&quot;
+                                d&#x3D;&quot;M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75&quot;
+                              /&gt;
+                            &lt;/svg&gt;
+                          &lt;/a&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                      &lt;div class&#x3D;&quot;flex flex-col&quot;&gt;
+                        &lt;div class&#x3D;&quot;overflow-x-auto pb-4&quot;&gt;
+                          &lt;div *ngIf&#x3D;&quot;albumsLoaded&quot; class&#x3D;&quot;block&quot;&gt;
+                            &lt;div
+                              class&#x3D;&quot;overflow-x-auto w-full border rounded-lg border-gray-300&quot;
+                            &gt;
+                              &lt;table class&#x3D;&quot;w-full rounded-xl overflow-auto&quot;&gt;
+                                &lt;thead&gt;
+                                  &lt;tr class&#x3D;&quot;bg-gray-50&quot;&gt;
+                                    &lt;th class&#x3D;&quot;&quot;&gt;
+                                      &lt;div class&#x3D;&quot;flex items-center py-5 px-5&quot;&gt;
+                                        &lt;input
+                                          type&#x3D;&quot;checkbox&quot;
+                                          value&#x3D;&quot;&quot;
+                                          class&#x3D;&quot;w-5 h-5 appearance-none border border-gray-300 rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100&quot;
+                                        /&gt;
+                                      &lt;/div&gt;
+                                    &lt;/th&gt;
+
+                                    &lt;th
+                                      scope&#x3D;&quot;col&quot;
+                                      class&#x3D;&quot;p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize min-w-[150px]&quot;
+                                    &gt;
+                                      Album Details
+                                    &lt;/th&gt;
+                                    &lt;th
+                                      scope&#x3D;&quot;col&quot;
+                                      class&#x3D;&quot;p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize&quot;
+                                    &gt;
+                                      No. of Photos
+                                    &lt;/th&gt;
+                                    &lt;th
+                                      scope&#x3D;&quot;col&quot;
+                                      class&#x3D;&quot;p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize&quot;
+                                    &gt;
+                                      Creation
+                                    &lt;/th&gt;
+                                    &lt;th
+                                      scope&#x3D;&quot;col&quot;
+                                      class&#x3D;&quot;p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize&quot;
+                                    &gt;
+                                      Status
+                                    &lt;/th&gt;
+                                    &lt;th
+                                      scope&#x3D;&quot;col&quot;
+                                      class&#x3D;&quot;p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize&quot;
+                                    &gt;
+                                      Actions
+                                    &lt;/th&gt;
+                                  &lt;/tr&gt;
+                                &lt;/thead&gt;
+
+                                &lt;tbody class&#x3D;&quot;divide-y divide-gray-300&quot;&gt;
+                                  &lt;tr
+                                    *ngFor&#x3D;&quot;let album of albums&quot;
+                                    class&#x3D;&quot;bg-white transition-all duration-500 hover:bg-gray-50&quot;
+                                  &gt;
+                                    &lt;td class&#x3D;&quot;&quot;&gt;
+                                      &lt;div class&#x3D;&quot;flex items-center py-5 px-5&quot;&gt;
+                                        &lt;input
+                                          type&#x3D;&quot;checkbox&quot;
+                                          value&#x3D;&quot;&quot;
+                                          class&#x3D;&quot;w-5 h-5 appearance-none border border-gray-300 rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100&quot;
+                                        /&gt;
+                                      &lt;/div&gt;
+                                    &lt;/td&gt;
+                                    &lt;td
+                                      class&#x3D;&quot;p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900&quot;
+                                    &gt;
+                                      &lt;div class&#x3D;&quot;w-38 flex items-center gap-3&quot;&gt;
+                                        &lt;div class&#x3D;&quot;inline-flex w-12 h-12&quot;&gt;
+                                          &lt;img
+                                            [src]&#x3D;&quot;album.featured_image&quot;
+                                            alt&#x3D;&quot;aji&quot;
+                                            class&#x3D;&quot;relative p-1 w-12 h-12 object-cover rounded-2xl&quot;
+                                          /&gt;&lt;span
+                                            class&#x3D;&quot;absolute w-12 h-12 inline-flex border-2 rounded-2xl border-gray-600 opacity-75&quot;
+                                          &gt;&lt;/span&gt;
+                                          &lt;span&gt;&lt;/span&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class&#x3D;&quot;data&quot;&gt;
+                                          &lt;p
+                                            class&#x3D;&quot;font-normal text-sm text-gray-900 overflow-hidden whitespace-nowrap max-w-[180px] truncate&quot;
+                                          &gt;
+                                            {{ album.title }}
+                                          &lt;/p&gt;
+                                          &lt;p
+                                            class&#x3D;&quot;font-normal text-xs leading-5 text-gray-400 overflow-hidden whitespace-nowrap max-w-[180px] truncate&quot;
+                                          &gt;
+                                            {{ album.description }}
+                                          &lt;/p&gt;
+                                        &lt;/div&gt;
+                                      &lt;/div&gt;
+                                    &lt;/td&gt;
+
+                                    &lt;td
+                                      class&#x3D;&quot;p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900&quot;
+                                    &gt;
+                                      {{ album.no_of_photos }}
+                                    &lt;/td&gt;
+                                    &lt;td class&#x3D;&quot;px-5 py-3&quot;&gt;
+                                      {{
+                                        album.created_on.toDate()
+                                          | date: &quot;short&quot;
+                                      }}
+                                      &lt;p
+                                        class&#x3D;&quot;font-normal text-xs leading-5 text-gray-400&quot;
+                                      &gt;
+                                        {{
+                                          album.created_on.toDate()
+                                            | date: &quot;medium&quot;
+                                            | dateAgo
+                                        }}
+                                      &lt;/p&gt;
+                                    &lt;/td&gt;
+                                    &lt;td
+                                      class&#x3D;&quot;p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900&quot;
+                                    &gt;
+                                      &lt;div
+                                        *ngIf&#x3D;&quot;album.status &#x3D;&#x3D; 1&quot;
+                                        class&#x3D;&quot;py-1.5 px-2.5 bg-emerald-50 rounded-full flex justify-center w-20 items-center gap-1&quot;
+                                      &gt;
+                                        &lt;svg
+                                          width&#x3D;&quot;5&quot;
+                                          height&#x3D;&quot;6&quot;
+                                          viewBox&#x3D;&quot;0 0 5 6&quot;
+                                          fill&#x3D;&quot;none&quot;
+                                          xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                        &gt;
+                                          &lt;circle
+                                            cx&#x3D;&quot;2.5&quot;
+                                            cy&#x3D;&quot;3&quot;
+                                            r&#x3D;&quot;2.5&quot;
+                                            fill&#x3D;&quot;#059669&quot;
+                                          &gt;&lt;/circle&gt;
+                                        &lt;/svg&gt;
+                                        &lt;span
+                                          class&#x3D;&quot;font-medium text-xs text-emerald-600&quot;
+                                          &gt;Active&lt;/span
+                                        &gt;
+                                      &lt;/div&gt;
+                                      &lt;div
+                                        *ngIf&#x3D;&quot;album.status &#x3D;&#x3D; 2&quot;
+                                        class&#x3D;&quot;py-1.5 px-2.5 bg-red-50 rounded-full flex w-20 justify-center items-center gap-1&quot;
+                                      &gt;
+                                        &lt;svg
+                                          width&#x3D;&quot;5&quot;
+                                          height&#x3D;&quot;6&quot;
+                                          viewBox&#x3D;&quot;0 0 5 6&quot;
+                                          fill&#x3D;&quot;none&quot;
+                                          xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                        &gt;
+                                          &lt;circle
+                                            cx&#x3D;&quot;2.5&quot;
+                                            cy&#x3D;&quot;3&quot;
+                                            r&#x3D;&quot;2.5&quot;
+                                            fill&#x3D;&quot;#DC2626&quot;
+                                          &gt;&lt;/circle&gt;
+                                        &lt;/svg&gt;
+                                        &lt;span
+                                          class&#x3D;&quot;font-medium text-xs text-red-600&quot;
+                                          &gt;Cancel&lt;/span
+                                        &gt;
+                                      &lt;/div&gt;
+
+                                      &lt;div
+                                        *ngIf&#x3D;&quot;album.status &#x3D;&#x3D; 3&quot;
+                                        class&#x3D;&quot;py-1.5 px-2.5 bg-amber-50 rounded-full flex items-center justify-center w-20 gap-1&quot;
+                                      &gt;
+                                        &lt;svg
+                                          width&#x3D;&quot;5&quot;
+                                          height&#x3D;&quot;6&quot;
+                                          viewBox&#x3D;&quot;0 0 5 6&quot;
+                                          fill&#x3D;&quot;none&quot;
+                                          xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                        &gt;
+                                          &lt;circle
+                                            cx&#x3D;&quot;2.5&quot;
+                                            cy&#x3D;&quot;3&quot;
+                                            r&#x3D;&quot;2.5&quot;
+                                            fill&#x3D;&quot;#D97706&quot;
+                                          &gt;&lt;/circle&gt;
+                                        &lt;/svg&gt;
+                                        &lt;span
+                                          class&#x3D;&quot;font-medium text-xs text-amber-600&quot;
+                                          &gt;Pending&lt;/span
+                                        &gt;
+                                      &lt;/div&gt;
+                                    &lt;/td&gt;
+                                    &lt;td class&#x3D;&quot;flex p-5 items-center gap-0.5&quot;&gt;
+                                      &lt;button
+                                        class&#x3D;&quot;p-2 rounded-full bg-white group transition-all duration-500 hover:bg-indigo-600 flex item-center&quot;
+                                      &gt;
+                                        &lt;svg
+                                          class&#x3D;&quot;cursor-pointer&quot;
+                                          width&#x3D;&quot;20&quot;
+                                          height&#x3D;&quot;20&quot;
+                                          viewBox&#x3D;&quot;0 0 20 20&quot;
+                                          fill&#x3D;&quot;none&quot;
+                                          xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                        &gt;
+                                          &lt;path
+                                            class&#x3D;&quot;fill-indigo-500 group-hover:fill-white&quot;
+                                            d&#x3D;&quot;M9.53414 8.15675L8.96459 7.59496L8.96459 7.59496L9.53414 8.15675ZM13.8911 3.73968L13.3215 3.17789V3.17789L13.8911 3.73968ZM16.3154 3.75892L15.7367 4.31126L15.7367 4.31127L16.3154 3.75892ZM16.38 3.82658L16.9587 3.27423L16.9587 3.27423L16.38 3.82658ZM16.3401 6.13595L15.7803 5.56438L16.3401 6.13595ZM11.9186 10.4658L12.4784 11.0374L11.9186 10.4658ZM11.1223 10.9017L10.9404 10.1226V10.1226L11.1223 10.9017ZM9.07259 10.9951L8.52556 11.5788L8.52556 11.5788L9.07259 10.9951ZM9.09713 8.9664L9.87963 9.1328V9.1328L9.09713 8.9664ZM9.05721 10.9803L8.49542 11.5498H8.49542L9.05721 10.9803ZM17.1679 4.99458L16.368 4.98075V4.98075L17.1679 4.99458ZM15.1107 2.8693L15.1171 2.06932L15.1107 2.8693ZM9.22851 8.51246L8.52589 8.12992L8.52452 8.13247L9.22851 8.51246ZM9.22567 8.51772L8.52168 8.13773L8.5203 8.1403L9.22567 8.51772ZM11.5684 10.7654L11.9531 11.4668L11.9536 11.4666L11.5684 10.7654ZM11.5669 10.7662L11.9507 11.4681L11.9516 11.4676L11.5669 10.7662ZM11.3235 3.30005C11.7654 3.30005 12.1235 2.94188 12.1235 2.50005C12.1235 2.05822 11.7654 1.70005 11.3235 1.70005V3.30005ZM18.3 9.55887C18.3 9.11705 17.9418 8.75887 17.5 8.75887C17.0582 8.75887 16.7 9.11705 16.7 9.55887H18.3ZM3.47631 16.5237L4.042 15.9581H4.042L3.47631 16.5237ZM16.5237 16.5237L15.958 15.9581L15.958 15.9581L16.5237 16.5237ZM10.1037 8.71855L14.4606 4.30148L13.3215 3.17789L8.96459 7.59496L10.1037 8.71855ZM15.7367 4.31127L15.8013 4.37893L16.9587 3.27423L16.8941 3.20657L15.7367 4.31127ZM15.7803 5.56438L11.3589 9.89426L12.4784 11.0374L16.8998 6.70753L15.7803 5.56438ZM10.9404 10.1226C10.3417 10.2624 9.97854 10.3452 9.72166 10.3675C9.47476 10.3888 9.53559 10.3326 9.61962 10.4113L8.52556 11.5788C8.9387 11.966 9.45086 11.9969 9.85978 11.9615C10.2587 11.9269 10.7558 11.8088 11.3042 11.6807L10.9404 10.1226ZM8.31462 8.8C8.19986 9.33969 8.09269 9.83345 8.0681 10.2293C8.04264 10.6393 8.08994 11.1499 8.49542 11.5498L9.619 10.4107C9.70348 10.494 9.65043 10.5635 9.66503 10.3285C9.6805 10.0795 9.75378 9.72461 9.87963 9.1328L8.31462 8.8ZM9.61962 10.4113C9.61941 10.4111 9.6192 10.4109 9.619 10.4107L8.49542 11.5498C8.50534 11.5596 8.51539 11.5693 8.52556 11.5788L9.61962 10.4113ZM15.8013 4.37892C16.0813 4.67236 16.2351 4.83583 16.3279 4.96331C16.4073 5.07234 16.3667 5.05597 16.368 4.98075L17.9678 5.00841C17.9749 4.59682 17.805 4.27366 17.6213 4.02139C17.451 3.78756 17.2078 3.53522 16.9587 3.27423L15.8013 4.37892ZM16.8998 6.70753C17.1578 6.45486 17.4095 6.21077 17.5876 5.98281C17.7798 5.73698 17.9607 5.41987 17.9678 5.00841L16.368 4.98075C16.3693 4.90565 16.4103 4.8909 16.327 4.99749C16.2297 5.12196 16.0703 5.28038 15.7803 5.56438L16.8998 6.70753ZM14.4606 4.30148C14.7639 3.99402 14.9352 3.82285 15.0703 3.71873C15.1866 3.62905 15.1757 3.66984 15.1044 3.66927L15.1171 2.06932C14.6874 2.06591 14.3538 2.25081 14.0935 2.45151C13.8518 2.63775 13.5925 2.9032 13.3215 3.17789L14.4606 4.30148ZM16.8941 3.20657C16.6279 2.92765 16.373 2.65804 16.1345 2.46792C15.8774 2.26298 15.5468 2.07273 15.1171 2.06932L15.1044 3.66927C15.033 3.66871 15.0226 3.62768 15.1372 3.71904C15.2704 3.82522 15.4387 3.999 15.7367 4.31126L16.8941 3.20657ZM8.96459 7.59496C8.82923 7.73218 8.64795 7.90575 8.5259 8.12993L9.93113 8.895C9.92075 8.91406 9.91465 8.91711 9.93926 8.88927C9.97002 8.85445 10.0145 8.80893 10.1037 8.71854L8.96459 7.59496ZM9.87963 9.1328C9.9059 9.00925 9.91925 8.94785 9.93124 8.90366C9.94073 8.86868 9.94137 8.87585 9.93104 8.89515L8.5203 8.1403C8.39951 8.36605 8.35444 8.61274 8.31462 8.8L9.87963 9.1328ZM8.52452 8.13247L8.52168 8.13773L9.92967 8.89772L9.9325 8.89246L8.52452 8.13247ZM11.3589 9.89426C11.27 9.98132 11.2252 10.0248 11.1909 10.055C11.1635 10.0791 11.1658 10.0738 11.1832 10.0642L11.9536 11.4666C12.1727 11.3462 12.3427 11.1703 12.4784 11.0374L11.3589 9.89426ZM11.3042 11.6807C11.4912 11.6371 11.7319 11.5878 11.9507 11.4681L11.1831 10.0643C11.2007 10.0547 11.206 10.0557 11.1697 10.0663C11.1248 10.0793 11.0628 10.0941 10.9404 10.1226L11.3042 11.6807ZM11.1837 10.064L11.1822 10.0648L11.9516 11.4676L11.9531 11.4668L11.1837 10.064ZM16.399 6.10097L13.8984 3.60094L12.7672 4.73243L15.2677 7.23246L16.399 6.10097ZM10.8333 16.7001H9.16667V18.3001H10.8333V16.7001ZM3.3 10.8334V9.16672H1.7V10.8334H3.3ZM9.16667 3.30005H11.3235V1.70005H9.16667V3.30005ZM16.7 9.55887V10.8334H18.3V9.55887H16.7ZM9.16667 16.7001C7.5727 16.7001 6.45771 16.6984 5.61569 16.5851C4.79669 16.475 4.35674 16.2728 4.042 15.9581L2.91063 17.0894C3.5722 17.751 4.40607 18.0369 5.4025 18.1709C6.37591 18.3018 7.61793 18.3001 9.16667 18.3001V16.7001ZM1.7 10.8334C1.7 12.3821 1.6983 13.6241 1.82917 14.5976C1.96314 15.594 2.24905 16.4279 2.91063 17.0894L4.042 15.9581C3.72726 15.6433 3.52502 15.2034 3.41491 14.3844C3.3017 13.5423 3.3 12.4273 3.3 10.8334H1.7ZM10.8333 18.3001C12.3821 18.3001 13.6241 18.3018 14.5975 18.1709C15.5939 18.0369 16.4278 17.751 17.0894 17.0894L15.958 15.9581C15.6433 16.2728 15.2033 16.475 14.3843 16.5851C13.5423 16.6984 12.4273 16.7001 10.8333 16.7001V18.3001ZM16.7 10.8334C16.7 12.4274 16.6983 13.5423 16.5851 14.3844C16.475 15.2034 16.2727 15.6433 15.958 15.9581L17.0894 17.0894C17.7509 16.4279 18.0369 15.594 18.1708 14.5976C18.3017 13.6241 18.3 12.3821 18.3 10.8334H16.7ZM3.3 9.16672C3.3 7.57275 3.3017 6.45776 3.41491 5.61574C3.52502 4.79674 3.72726 4.35679 4.042 4.04205L2.91063 2.91068C2.24905 3.57225 1.96314 4.40612 1.82917 5.40255C1.6983 6.37596 1.7 7.61798 1.7 9.16672H3.3ZM9.16667 1.70005C7.61793 1.70005 6.37591 1.69835 5.4025 1.82922C4.40607 1.96319 3.5722 2.24911 2.91063 2.91068L4.042 4.04205C4.35674 3.72731 4.79669 3.52507 5.61569 3.41496C6.45771 3.30175 7.5727 3.30005 9.16667 3.30005V1.70005Z&quot;
+                                            fill&#x3D;&quot;#818CF8&quot;
+                                          &gt;&lt;/path&gt;
+                                        &lt;/svg&gt;
+                                      &lt;/button&gt;
+                                      &lt;button
+                                        class&#x3D;&quot;p-2 rounded-full bg-white group transition-all duration-500 hover:bg-red-600 flex item-center&quot;
+                                      &gt;
+                                        &lt;svg
+                                          class&#x3D;&quot;&quot;
+                                          width&#x3D;&quot;20&quot;
+                                          height&#x3D;&quot;20&quot;
+                                          viewBox&#x3D;&quot;0 0 20 20&quot;
+                                          fill&#x3D;&quot;none&quot;
+                                          xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                        &gt;
+                                          &lt;path
+                                            class&#x3D;&quot;fill-red-600 group-hover:fill-white&quot;
+                                            d&#x3D;&quot;M4.00031 5.49999V4.69999H3.20031V5.49999H4.00031ZM16.0003 5.49999H16.8003V4.69999H16.0003V5.49999ZM17.5003 5.49999L17.5003 6.29999C17.9421 6.29999 18.3003 5.94183 18.3003 5.5C18.3003 5.05817 17.9421 4.7 17.5003 4.69999L17.5003 5.49999ZM9.30029 9.24997C9.30029 8.80814 8.94212 8.44997 8.50029 8.44997C8.05847 8.44997 7.70029 8.80814 7.70029 9.24997H9.30029ZM7.70029 13.75C7.70029 14.1918 8.05847 14.55 8.50029 14.55C8.94212 14.55 9.30029 14.1918 9.30029 13.75H7.70029ZM12.3004 9.24997C12.3004 8.80814 11.9422 8.44997 11.5004 8.44997C11.0585 8.44997 10.7004 8.80814 10.7004 9.24997H12.3004ZM10.7004 13.75C10.7004 14.1918 11.0585 14.55 11.5004 14.55C11.9422 14.55 12.3004 14.1918 12.3004 13.75H10.7004ZM4.00031 6.29999H16.0003V4.69999H4.00031V6.29999ZM15.2003 5.49999V12.5H16.8003V5.49999H15.2003ZM11.0003 16.7H9.00031V18.3H11.0003V16.7ZM4.80031 12.5V5.49999H3.20031V12.5H4.80031ZM9.00031 16.7C7.79918 16.7 6.97882 16.6983 6.36373 16.6156C5.77165 16.536 5.49093 16.3948 5.29823 16.2021L4.16686 17.3334C4.70639 17.873 5.38104 18.0979 6.15053 18.2013C6.89702 18.3017 7.84442 18.3 9.00031 18.3V16.7ZM3.20031 12.5C3.20031 13.6559 3.19861 14.6033 3.29897 15.3498C3.40243 16.1193 3.62733 16.7939 4.16686 17.3334L5.29823 16.2021C5.10553 16.0094 4.96431 15.7286 4.88471 15.1366C4.80201 14.5215 4.80031 13.7011 4.80031 12.5H3.20031ZM15.2003 12.5C15.2003 13.7011 15.1986 14.5215 15.1159 15.1366C15.0363 15.7286 14.8951 16.0094 14.7024 16.2021L15.8338 17.3334C16.3733 16.7939 16.5982 16.1193 16.7016 15.3498C16.802 14.6033 16.8003 13.6559 16.8003 12.5H15.2003ZM11.0003 18.3C12.1562 18.3 13.1036 18.3017 13.8501 18.2013C14.6196 18.0979 15.2942 17.873 15.8338 17.3334L14.7024 16.2021C14.5097 16.3948 14.229 16.536 13.6369 16.6156C13.0218 16.6983 12.2014 16.7 11.0003 16.7V18.3ZM2.50031 4.69999C2.22572 4.7 2.04405 4.7 1.94475 4.7C1.89511 4.7 1.86604 4.7 1.85624 4.7C1.85471 4.7 1.85206 4.7 1.851 4.7C1.05253 5.50059 1.85233 6.3 1.85256 6.3C1.85273 6.3 1.85297 6.3 1.85327 6.3C1.85385 6.3 1.85472 6.3 1.85587 6.3C1.86047 6.3 1.86972 6.3 1.88345 6.3C1.99328 6.3 2.39045 6.3 2.9906 6.3C4.19091 6.3 6.2032 6.3 8.35279 6.3C10.5024 6.3 12.7893 6.3 14.5387 6.3C15.4135 6.3 16.1539 6.3 16.6756 6.3C16.9364 6.3 17.1426 6.29999 17.2836 6.29999C17.3541 6.29999 17.4083 6.29999 17.4448 6.29999C17.4631 6.29999 17.477 6.29999 17.4863 6.29999C17.4909 6.29999 17.4944 6.29999 17.4968 6.29999C17.498 6.29999 17.4988 6.29999 17.4994 6.29999C17.4997 6.29999 17.4999 6.29999 17.5001 6.29999C17.5002 6.29999 17.5003 6.29999 17.5003 5.49999C17.5003 4.69999 17.5002 4.69999 17.5001 4.69999C17.4999 4.69999 17.4997 4.69999 17.4994 4.69999C17.4988 4.69999 17.498 4.69999 17.4968 4.69999C17.4944 4.69999 17.4909 4.69999 17.4863 4.69999C17.477 4.69999 17.4631 4.69999 17.4448 4.69999C17.4083 4.69999 17.3541 4.69999 17.2836 4.69999C17.1426 4.7 16.9364 4.7 16.6756 4.7C16.1539 4.7 15.4135 4.7 14.5387 4.7C12.7893 4.7 10.5024 4.7 8.35279 4.7C6.2032 4.7 4.19091 4.7 2.9906 4.7C2.39044 4.7 1.99329 4.7 1.88347 4.7C1.86974 4.7 1.86051 4.7 1.85594 4.7C1.8548 4.7 1.85396 4.7 1.85342 4.7C1.85315 4.7 1.85298 4.7 1.85288 4.7C1.85284 4.7 2.65253 5.49941 1.85408 6.3C1.85314 6.3 1.85296 6.3 1.85632 6.3C1.86608 6.3 1.89511 6.3 1.94477 6.3C2.04406 6.3 2.22573 6.3 2.50031 6.29999L2.50031 4.69999ZM7.05028 5.49994V4.16661H5.45028V5.49994H7.05028ZM7.91695 3.29994H12.0836V1.69994H7.91695V3.29994ZM12.9503 4.16661V5.49994H14.5503V4.16661H12.9503ZM12.0836 3.29994C12.5623 3.29994 12.9503 3.68796 12.9503 4.16661H14.5503C14.5503 2.8043 13.4459 1.69994 12.0836 1.69994V3.29994ZM7.05028 4.16661C7.05028 3.68796 7.4383 3.29994 7.91695 3.29994V1.69994C6.55465 1.69994 5.45028 2.8043 5.45028 4.16661H7.05028ZM2.50031 6.29999C4.70481 6.29998 6.40335 6.29998 8.1253 6.29997C9.84725 6.29996 11.5458 6.29995 13.7503 6.29994L13.7503 4.69994C11.5458 4.69995 9.84724 4.69996 8.12529 4.69997C6.40335 4.69998 4.7048 4.69998 2.50031 4.69999L2.50031 6.29999ZM13.7503 6.29994L17.5003 6.29999L17.5003 4.69999L13.7503 4.69994L13.7503 6.29994ZM7.70029 9.24997V13.75H9.30029V9.24997H7.70029ZM10.7004 9.24997V13.75H12.3004V9.24997H10.7004Z&quot;
+                                            fill&#x3D;&quot;#F87171&quot;
+                                          &gt;&lt;/path&gt;
+                                        &lt;/svg&gt;
+                                      &lt;/button&gt;
+                                      &lt;button
+                                        [routerLink]&#x3D;&quot;[
+                                          &#x27;/album&#x27;,
+                                          album.userId,
+                                          album.id
+                                        ]&quot;
+                                        class&#x3D;&quot;p-2 rounded-full bg-white group transition-all duration-500 hover:text-green-400 flex item-center&quot;
+                                      &gt;
+                                        &lt;svg
+                                          width&#x3D;&quot;20&quot;
+                                          height&#x3D;&quot;20&quot;
+                                          xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                          fill&#x3D;&quot;none&quot;
+                                          viewBox&#x3D;&quot;0 0 24 24&quot;
+                                          stroke-width&#x3D;&quot;1.5&quot;
+                                          stroke&#x3D;&quot;currentColor&quot;
+                                          class&#x3D;&quot;w-6 h-6&quot;
+                                        &gt;
+                                          &lt;path
+                                            stroke-linecap&#x3D;&quot;round&quot;
+                                            stroke-linejoin&#x3D;&quot;round&quot;
+                                            d&#x3D;&quot;M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3&quot;
+                                          /&gt;
+                                        &lt;/svg&gt;
+                                      &lt;/button&gt;
+                                    &lt;/td&gt;
+                                  &lt;/tr&gt;
+                                &lt;/tbody&gt;
+                              &lt;/table&gt;
+                            &lt;/div&gt;
+                            &lt;nav
+                              class&#x3D;&quot;flex items-center justify-center py-4&quot;
+                              aria-label&#x3D;&quot;Table navigation&quot;
+                            &gt;
+                              &lt;ul
+                                class&#x3D;&quot;flex items-center justify-center text-sm h-auto gap-12&quot;
+                              &gt;
+                                &lt;li&gt;
+                                  &lt;a
+                                    href&#x3D;&quot;javascript:;&quot;
+                                    class&#x3D;&quot;flex items-center justify-center gap-2 px-3 h-8 ml-0 text-gray-500 bg-white font-medium text-base leading-7 hover:text-gray-700&quot;
+                                  &gt;
+                                    &lt;svg
+                                      width&#x3D;&quot;21&quot;
+                                      height&#x3D;&quot;20&quot;
+                                      viewBox&#x3D;&quot;0 0 21 20&quot;
+                                      fill&#x3D;&quot;none&quot;
+                                      xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                    &gt;
+                                      &lt;path
+                                        d&#x3D;&quot;M13.0002 14.9999L8 9.99967L13.0032 4.99652&quot;
+                                        stroke&#x3D;&quot;black&quot;
+                                        stroke-width&#x3D;&quot;1.6&quot;
+                                        stroke-linecap&#x3D;&quot;round&quot;
+                                        stroke-linejoin&#x3D;&quot;round&quot;
+                                      &gt;&lt;/path&gt;
+                                    &lt;/svg&gt;
+                                    Back
+                                  &lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                  &lt;ul
+                                    class&#x3D;&quot;flex items-center justify-center gap-4&quot;
+                                  &gt;
+                                    &lt;li&gt;
+                                      &lt;a
+                                        href&#x3D;&quot;javascript:;&quot;
+                                        class&#x3D;&quot;font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full bg-white transition-all duration-500 hover:bg-indigo-600 hover:text-white&quot;
+                                        &gt;1&lt;/a
+                                      &gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a
+                                        href&#x3D;&quot;javascript:;&quot;
+                                        class&#x3D;&quot;font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full bg-white transition-all duration-500 hover:bg-indigo-600 hover:text-white&quot;
+                                        &gt;2&lt;/a
+                                      &gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a
+                                        href&#x3D;&quot;javascript:;&quot;
+                                        class&#x3D;&quot;font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full bg-white transition-all duration-500 hover:bg-indigo-600 hover:text-white&quot;
+                                        &gt;3&lt;/a
+                                      &gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a
+                                        href&#x3D;&quot;javascript:;&quot;
+                                        class&#x3D;&quot;font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full bg-white transition-all duration-500 hover:bg-indigo-600 hover:text-white&quot;
+                                        &gt;4&lt;/a
+                                      &gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a
+                                        href&#x3D;&quot;javascript:;&quot;
+                                        class&#x3D;&quot;font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full bg-white transition-all duration-500 hover:bg-indigo-600 hover:text-white&quot;
+                                        &gt;5&lt;/a
+                                      &gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a
+                                        href&#x3D;&quot;javascript:;&quot;
+                                        class&#x3D;&quot;font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full&quot;
+                                      &gt;
+                                        &lt;svg
+                                          width&#x3D;&quot;21&quot;
+                                          height&#x3D;&quot;20&quot;
+                                          viewBox&#x3D;&quot;0 0 21 20&quot;
+                                          fill&#x3D;&quot;none&quot;
+                                          xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                        &gt;
+                                          &lt;path
+                                            d&#x3D;&quot;M5.52754 10.001H5.47754M10.5412 10.001H10.4912M15.5549 10.001H15.5049&quot;
+                                            stroke&#x3D;&quot;black&quot;
+                                            stroke-width&#x3D;&quot;2.5&quot;
+                                            stroke-linecap&#x3D;&quot;round&quot;
+                                          &gt;&lt;/path&gt;
+                                        &lt;/svg&gt;
+                                      &lt;/a&gt;
+                                    &lt;/li&gt;
+                                  &lt;/ul&gt;
+                                &lt;/li&gt;
+                                &lt;li&gt;
+                                  &lt;a
+                                    href&#x3D;&quot;javascript:;&quot;
+                                    class&#x3D;&quot;flex items-center justify-center gap-2 px-3 h-8 ml-0 text-gray-500 bg-white font-medium text-base leading-7 hover:text-gray-700&quot;
+                                  &gt;
+                                    next
+                                    &lt;svg
+                                      width&#x3D;&quot;21&quot;
+                                      height&#x3D;&quot;20&quot;
+                                      viewBox&#x3D;&quot;0 0 21 20&quot;
+                                      fill&#x3D;&quot;none&quot;
+                                      xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                    &gt;
+                                      &lt;path
+                                        d&#x3D;&quot;M8.00295 4.99646L13.0032 9.99666L8 14.9998&quot;
+                                        stroke&#x3D;&quot;black&quot;
+                                        stroke-width&#x3D;&quot;1.6&quot;
+                                        stroke-linecap&#x3D;&quot;round&quot;
+                                        stroke-linejoin&#x3D;&quot;round&quot;
+                                      &gt;&lt;/path&gt;
+                                    &lt;/svg&gt;
+                                  &lt;/a&gt;
+                                &lt;/li&gt;
+                              &lt;/ul&gt;
+                            &lt;/nav&gt;
+                          &lt;/div&gt;
+                          &lt;div
+                            *ngIf&#x3D;&quot;!albumsLoaded&quot;
+                            role&#x3D;&quot;status&quot;
+                            class&#x3D;&quot;sm:w-full p-4 my-10 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded shadow animate-pulse dark:divide-gray-700 md:p-6 dark:border-gray-700&quot;
+                          &gt;
+                            &lt;div class&#x3D;&quot;flex items-center justify-between&quot;&gt;
+                              &lt;div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5&quot;
+                                &gt;&lt;/div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700&quot;
+                                &gt;&lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div
+                                class&#x3D;&quot;h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12&quot;
+                              &gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;flex items-center justify-between pt-4&quot;&gt;
+                              &lt;div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5&quot;
+                                &gt;&lt;/div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700&quot;
+                                &gt;&lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div
+                                class&#x3D;&quot;h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12&quot;
+                              &gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;flex items-center justify-between pt-4&quot;&gt;
+                              &lt;div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5&quot;
+                                &gt;&lt;/div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700&quot;
+                                &gt;&lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div
+                                class&#x3D;&quot;h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12&quot;
+                              &gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;flex items-center justify-between pt-4&quot;&gt;
+                              &lt;div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5&quot;
+                                &gt;&lt;/div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700&quot;
+                                &gt;&lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div
+                                class&#x3D;&quot;h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12&quot;
+                              &gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;flex items-center justify-between pt-4&quot;&gt;
+                              &lt;div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5&quot;
+                                &gt;&lt;/div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700&quot;
+                                &gt;&lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div
+                                class&#x3D;&quot;h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12&quot;
+                              &gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;span class&#x3D;&quot;sr-only&quot;&gt;Loading...&lt;/span&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div
+                  class&#x3D;&quot;w-full max-w-full px-3 mb-6 lg:w-4/12 sm:flex-none xl:mb-0&quot;
+                &gt;
+                  &lt;h3 class&#x3D;&quot;font-bold mb-5 text-2xl&quot;&gt;Featured albums&lt;/h3&gt;
+                  &lt;div
+                    class&#x3D;&quot;relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-neutral-100 mb-5&quot;
+                  &gt;
+                    &lt;!-- card body  --&gt;
+                    &lt;div class&#x3D;&quot;flex-auto block py-8 pt-6 px-9&quot;&gt;
+                      &lt;div
+                        class&#x3D;&quot;flex flex-col justify-items-start items-center&quot;
+                        style&#x3D;&quot;overflow-y: auto&quot;
+                      &gt;
+                        &lt;div *ngIf&#x3D;&quot;!featuredAlbumsLoaded&quot;&gt;
+                          &lt;div
+                            role&#x3D;&quot;status&quot;
+                            class&#x3D;&quot;max-w-lg my-4 sm:max-w-lg sm:w-[28em] p-4 border border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700&quot;
+                          &gt;
+                            &lt;div
+                              class&#x3D;&quot;flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700&quot;
+                            &gt;
+                              &lt;svg
+                                class&#x3D;&quot;w-10 h-10 text-gray-200 dark:text-gray-600&quot;
+                                aria-hidden&#x3D;&quot;true&quot;
+                                xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                fill&#x3D;&quot;currentColor&quot;
+                                viewBox&#x3D;&quot;0 0 16 20&quot;
+                              &gt;
+                                &lt;path
+                                  d&#x3D;&quot;M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z&quot;
+                                /&gt;
+                                &lt;path
+                                  d&#x3D;&quot;M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z&quot;
+                                /&gt;
+                              &lt;/svg&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;flex items-center mt-4&quot;&gt;
+                              &lt;svg
+                                class&#x3D;&quot;w-10 h-10 me-3 text-gray-200 dark:text-gray-700&quot;
+                                aria-hidden&#x3D;&quot;true&quot;
+                                xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                fill&#x3D;&quot;currentColor&quot;
+                                viewBox&#x3D;&quot;0 0 20 20&quot;
+                              &gt;
+                                &lt;path
+                                  d&#x3D;&quot;M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z&quot;
+                                /&gt;
+                              &lt;/svg&gt;
+                              &lt;div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2&quot;
+                                &gt;&lt;/div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700&quot;
+                                &gt;&lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;span class&#x3D;&quot;sr-only&quot;&gt;Loading...&lt;/span&gt;
+                          &lt;/div&gt;
+                          &lt;div
+                            role&#x3D;&quot;status&quot;
+                            class&#x3D;&quot;max-w-lg my-4 sm:max-w-lg sm:w-[28em] p-4 border border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700&quot;
+                          &gt;
+                            &lt;div
+                              class&#x3D;&quot;flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700&quot;
+                            &gt;
+                              &lt;svg
+                                class&#x3D;&quot;w-10 h-10 text-gray-200 dark:text-gray-600&quot;
+                                aria-hidden&#x3D;&quot;true&quot;
+                                xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                fill&#x3D;&quot;currentColor&quot;
+                                viewBox&#x3D;&quot;0 0 16 20&quot;
+                              &gt;
+                                &lt;path
+                                  d&#x3D;&quot;M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z&quot;
+                                /&gt;
+                                &lt;path
+                                  d&#x3D;&quot;M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z&quot;
+                                /&gt;
+                              &lt;/svg&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;flex items-center mt-4&quot;&gt;
+                              &lt;svg
+                                class&#x3D;&quot;w-10 h-10 me-3 text-gray-200 dark:text-gray-700&quot;
+                                aria-hidden&#x3D;&quot;true&quot;
+                                xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                fill&#x3D;&quot;currentColor&quot;
+                                viewBox&#x3D;&quot;0 0 20 20&quot;
+                              &gt;
+                                &lt;path
+                                  d&#x3D;&quot;M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z&quot;
+                                /&gt;
+                              &lt;/svg&gt;
+                              &lt;div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2&quot;
+                                &gt;&lt;/div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700&quot;
+                                &gt;&lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;span class&#x3D;&quot;sr-only&quot;&gt;Loading...&lt;/span&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div *ngIf&#x3D;&quot;featuredAlbumsLoaded&quot;&gt;
+                          &lt;div
+                            *ngFor&#x3D;&quot;let album of featuredAlbums&quot;
+                            class&#x3D;&quot;max-w-md bg-white rounded-xl overflow-hidden cursor-pointer my-3 hover:scale-105 transform transition-all duration-500&quot;
+                          &gt;
+                            &lt;!-- header --&gt;
+
+                            &lt;div class&#x3D;&quot;flex justify-between p-6&quot;&gt;
+                              &lt;!-- header --&gt;
+                              &lt;div
+                                class&#x3D;&quot;grid grid-cols-6 space-x-4 items-center&quot;
+                              &gt;
+                                &lt;div class&#x3D;&quot;w-12 h-12 col-span-1&quot;&gt;
+                                  &lt;img
+                                    class&#x3D;&quot;rounded-full w-full h-full object-cover&quot;
+                                    [src]&#x3D;&quot;user.photoURL&quot;
+                                    alt&#x3D;&quot;&quot;
+                                  /&gt;
+                                  &lt;div&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;space-y-2 col-span-5&quot;&gt;
+                                  &lt;div class&#x3D;&quot;flex space-x-2 items-center&quot;&gt;
+                                    &lt;h2 class&#x3D;&quot;text-base text-black&quot;&gt;
+                                      {{
+                                        user.displayName
+                                          ? (user.displayName | titlecase)
+                                          : (user.email | titlecase)
+                                      }}
+                                    &lt;/h2&gt;
+                                    &lt;svg
+                                      class&#x3D;&quot;h-4 w-4 text-blue-500&quot;
+                                      fill&#x3D;&quot;none&quot;
+                                      viewBox&#x3D;&quot;0 0 24 24&quot;
+                                      stroke&#x3D;&quot;currentColor&quot;
+                                      stroke-width&#x3D;&quot;2&quot;
+                                    &gt;
+                                      &lt;path
+                                        stroke-linecap&#x3D;&quot;round&quot;
+                                        stroke-linejoin&#x3D;&quot;round&quot;
+                                        d&#x3D;&quot;M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z&quot;
+                                      /&gt;
+                                    &lt;/svg&gt;
+                                    &lt;div class&#x3D;&quot;text-xs text-slate-400&quot;&gt;
+                                      posted an update
+                                    &lt;/div&gt;
+                                  &lt;/div&gt;
+                                  &lt;p class&#x3D;&quot;text-xs text-slate-400&quot;&gt;
+                                    {{
+                                      album.created_on.toDate() | date: &quot;medium&quot;
+                                    }}
+                                  &lt;/p&gt;
+                                  &lt;p class&#x3D;&quot;text-xs text-slate-400&quot;&gt;
+                                    {{
+                                      album.created_on.toDate()
+                                        | date: &quot;medium&quot;
+                                        | dateAgo
+                                    }}
+                                  &lt;/p&gt;
+                                  &lt;!--content--&gt;
+                                  &lt;div&gt;
+                                    &lt;p
+                                      class&#x3D;&quot;text-sm leading-6 text-slate-500 truncate&quot;
+                                    &gt;
+                                      {{ album.description }}
+                                    &lt;/p&gt;
+                                  &lt;/div&gt;
+                                &lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+
+                            &lt;div class&#x3D;&quot;p-4&quot;&gt;
+                              &lt;!-- image grid--&gt;
+
+                              &lt;div class&#x3D;&quot;grid grid-cols-6 col-span-2 gap-2&quot;&gt;
+                                &lt;div
+                                  class&#x3D;&quot;overflow-hidden rounded-xl col-span-3 max-h-[14rem]&quot;
+                                &gt;
+                                  &lt;img
+                                    class&#x3D;&quot;h-full w-full object-cover&quot;
+                                    [src]&#x3D;&quot;album.featured_image&quot;
+                                    alt&#x3D;&quot;&quot;
+                                  /&gt;
+                                &lt;/div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;overflow-hidden rounded-xl col-span-3 max-h-[14rem]&quot;
+                                &gt;
+                                  &lt;img
+                                    class&#x3D;&quot;h-full w-full object-cover&quot;
+                                    [src]&#x3D;&quot;album.featured_image_1&quot;
+                                    alt&#x3D;&quot;&quot;
+                                  /&gt;
+                                &lt;/div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;overflow-hidden rounded-xl col-span-2 max-h-[10rem]&quot;
+                                &gt;
+                                  &lt;img
+                                    class&#x3D;&quot;h-full w-full object-cover&quot;
+                                    [src]&#x3D;&quot;album.featured_image_2&quot;
+                                    alt&#x3D;&quot;&quot;
+                                  /&gt;
+                                &lt;/div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;overflow-hidden rounded-xl col-span-2 max-h-[10rem]&quot;
+                                &gt;
+                                  &lt;img
+                                    class&#x3D;&quot;h-full w-full object-cover&quot;
+                                    [src]&#x3D;&quot;album.featured_image_3&quot;
+                                    alt&#x3D;&quot;&quot;
+                                  /&gt;
+                                &lt;/div&gt;
+                                &lt;div
+                                  class&#x3D;&quot;relative overflow-hidden rounded-xl col-span-2 max-h-[10rem]&quot;
+                                &gt;
+                                  &lt;div
+                                    class&#x3D;&quot;text-white text-xl absolute inset-0 bg-slate-900/80 flex justify-center items-center&quot;
+                                  &gt;
+                                    + {{ album.no_of_photos - 4 }}
+                                  &lt;/div&gt;
+                                  &lt;img
+                                    class&#x3D;&quot;h-full w-full object-cover&quot;
+                                    src&#x3D;&quot;https://images.unsplash.com/photo-1560393464-5c69a73c5770?ixlib&#x3D;rb-1.2.1&amp;ixid&#x3D;MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;765&amp;q&#x3D;80&quot;
+                                    alt&#x3D;&quot;&quot;
+                                  /&gt;
+                                &lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div class&#x3D;&quot;flex space-x-6 items-center py-4&quot;&gt;
+                                &lt;div class&#x3D;&quot;flex space-x-2 items-center&quot;&gt;
+                                  &lt;span&gt;
+                                    &lt;svg
+                                      xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                      class&#x3D;&quot;h-6 w-6 text-gray-600&quot;
+                                      fill&#x3D;&quot;none&quot;
+                                      viewBox&#x3D;&quot;0 0 24 24&quot;
+                                      stroke&#x3D;&quot;currentColor&quot;
+                                    &gt;
+                                      &lt;path
+                                        stroke-linecap&#x3D;&quot;round&quot;
+                                        stroke-linejoin&#x3D;&quot;round&quot;
+                                        stroke-width&#x3D;&quot;2&quot;
+                                        d&#x3D;&quot;M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z&quot;
+                                      /&gt;
+                                    &lt;/svg&gt;
+                                  &lt;/span&gt;
+                                  &lt;span class&#x3D;&quot;text-gray-700 font-semibold&quot;
+                                    &gt;20&lt;/span
+                                  &gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;flex space-x-2 items-center pr-4&quot;&gt;
+                                  &lt;span&gt;
+                                    &lt;svg
+                                      xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                      class&#x3D;&quot;h-6 w-6 text-red-600 hover:text-red-500&quot;
+                                      viewBox&#x3D;&quot;0 0 20 20&quot;
+                                      fill&#x3D;&quot;currentColor&quot;
+                                    &gt;
+                                      &lt;path
+                                        fill-rule&#x3D;&quot;evenodd&quot;
+                                        d&#x3D;&quot;M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z&quot;
+                                        clip-rule&#x3D;&quot;evenodd&quot;
+                                      /&gt;
+                                    &lt;/svg&gt;
+                                  &lt;/span&gt;
+                                  &lt;span class&#x3D;&quot;text-gray-700 font-semibold&quot;
+                                    &gt;22&lt;/span
+                                  &gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;flex space-x-2 items-center pr-4&quot;&gt;
+                                  &lt;span&gt;
+                                    &lt;svg
+                                      class&#x3D;&quot;h-6 w-6 text-red-600 hover:text-red-500&quot;
+                                      xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+                                      fill&#x3D;&quot;none&quot;
+                                      viewBox&#x3D;&quot;0 0 24 24&quot;
+                                      stroke-width&#x3D;&quot;1.5&quot;
+                                      stroke&#x3D;&quot;currentColor&quot;
+                                      class&#x3D;&quot;w-6 h-6&quot;
+                                    &gt;
+                                      &lt;path
+                                        stroke-linecap&#x3D;&quot;round&quot;
+                                        stroke-linejoin&#x3D;&quot;round&quot;
+                                        d&#x3D;&quot;m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z&quot;
+                                      /&gt;
+                                    &lt;/svg&gt;
+                                  &lt;/span&gt;
+                                  &lt;span class&#x3D;&quot;text-gray-700 font-semibold&quot;&gt;{{
+                                    album.no_of_photos
+                                  }}&lt;/span&gt;
+                                &lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- end card body  --&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;app-footer&gt;&lt;/app-footer&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./user.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="h-screen w-screen flex bg-gray-200">  <!-- container -->  <app-side-nav></app-side-nav>  <div class="w-screen flex flex-col" style="overflow-y: auto">    <link      rel="stylesheet"      href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/riva-dashboard.css"    />    <div class="flex flex-wrap -mx-3 mb-5">      <div class="w-full max-w-full px-3 mb-6 mx-auto">        <div          class="relative flex-[1_auto] flex flex-col break-words min-w-0 bg-clip-border rounded-[.95rem] bg-white m-5"        >          <div            class="relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30"          >            <app-nav-bar></app-nav-bar>            <div              class="w-full px-10 py-6 mx-auto loopple-min-height-78vh text-slate-500"            >              <div class="flex flex-wrap -mx-3 mb-5 removable">                <div                  class="w-full max-w-full px-3 mb-6 lg:w-8/12 sm:flex-none xl:mb-0"                >                  <div class="container">                    <div class="w-full mx-auto grid gap-4 grid-cols-1">                      <div *ngIf="!loaded" role="status" class="animate-pulse">                        <div                          class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 max-w-[640px] mb-2.5 mx-auto"                        ></div>                        <div                          class="h-2.5 mx-auto bg-gray-300 rounded-full dark:bg-gray-700 max-w-[540px]"                        ></div>                        <div class="flex items-center justify-center mt-4">                          <svg                            class="w-8 h-8 text-gray-200 dark:text-gray-700 me-4"                            aria-hidden="true"                            xmlns="http://www.w3.org/2000/svg"                            fill="currentColor"                            viewBox="0 0 20 20"                          >                            <path                              d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"                            />                          </svg>                          <div                            class="w-20 h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 me-3"                          ></div>                          <div                            class="w-24 h-2 bg-gray-200 rounded-full dark:bg-gray-700"                          ></div>                        </div>                        <span class="sr-only">Loading...</span>                      </div>                      <!-- profile card -->                      <div                        *ngIf="loaded"                        class="flex flex-col sticky top-0 z-10"                      >                        <div                          class="relative flex flex-col break-words min-w-0 bg-clip-border rounded-xl bg-[#DCF5E8]"                        >                          <!-- card body  -->                          <div class="flex-auto block py-8 px-9">                            <div class="m-0 z-20 relative">                              <div class="flex-none sm:flex">                                <div class="inline-flex w-32 h-32">                                  <img                                    [src]="user.photoURL"                                    alt="aji"                                    class="relative p-1 w-32 h-32 object-cover rounded-2xl"                                  />                                  <span                                    class="absolute w-32 h-32 inline-flex border-2 rounded-2xl border-green-400 opacity-75"                                  ></span>                                </div>                                <div class="flex-auto sm:ml-5 justify-evenly">                                  <div                                    class="flex items-center justify-between sm:mt-2"                                  >                                    <div class="flex items-center">                                      <div class="flex flex-col">                                        <div                                          class="relative z-20 text-3xl font-semibold text-[#60a682] w-full"                                        >                                          {{                                            user.displayName                                              ? (user.displayName | titlecase)                                              : (user.email | titlecase)                                          }}                                        </div>                                        <div                                          class="flex-auto text-gray-400 my-1"                                        >                                          <span class="mr-3 mb-7 text-black"                                            >UI/UX Designer</span                                          ><span                                            class="mr-3 border-r border-gray-600 max-h-0"                                          ></span                                          ><span>Nairobi, KE</span>                                        </div>                                      </div>                                    </div>                                  </div>                                  <div class="flex pt-2 text-sm text-black">                                    <div                                      class="flex-1 inline-flex items-center"                                    >                                      <svg                                        xmlns="http://www.w3.org/2000/svg"                                        class="h-5 w-5 mr-2"                                        viewBox="0 0 20 20"                                        fill="currentColor"                                      >                                        <path                                          d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"                                        ></path>                                      </svg>                                      <p class="">1.2k Followers</p>                                      &nbsp; &nbsp;                                      <svg                                        xmlns="http://www.w3.org/2000/svg"                                        fill="none"                                        viewBox="0 0 24 24"                                        stroke-width="1.5"                                        stroke="currentColor"                                        class="w-6 h-6"                                      >                                        <path                                          stroke-linecap="round"                                          stroke-linejoin="round"                                          d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"                                        />                                      </svg>                                      &nbsp;                                      <p class="">                                        {{ user.no_of_albums }} Albums                                      </p>                                    </div>                                    <a                                      class="shrink-0 inline-block text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out text-dark bg-green-400 border-white shadow-none [border:_0] px-5 py-3.5 hover:bg-green-500 text-white active:bg-white focus:bg-white"                                      >Follow</a                                    >                                  </div>                                </div>                              </div>                            </div>                            <img                              src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/bonus.png"                              class="bottom-0 absolute mr-3 end-0 h-[200px] z-10"                              alt=""                            />                          </div>                          <ng-template #noUser>                            <!-- Toast -->                            <div                              class="max-w-xs bg-white border border-gray-200 rounded-xl shadow-lg"                              role="alert"                            >                              <div class="flex items-center p-4">                                <div                                  class="animate-spin inline-block size-4 border-[3px] border-current border-t-transparent text-blue-600 rounded-full"                                  role="status"                                  aria-label="loading"                                >                                  <span class="sr-only">Loading...</span>                                </div>                                <p class="ms-3 text-sm text-gray-700">                                  Search for user records                                </p>                              </div>                            </div>                            <!-- End Toast -->                          </ng-template>                        </div>                      </div>                      <div class="flex items-center lg:shrink-0 lg:flex-nowrap">                        <div                          class="relative flex items-center lg:ml-4 sm:mr-0 mr-2"                        >                          <span                            class="absolute ml-4 leading-none -translate-y-1/2 top-1/2 text-muted"                          >                            <svg                              xmlns="http://www.w3.org/2000/svg"                              fill="none"                              viewBox="0 0 24 24"                              stroke-width="1.5"                              stroke="currentColor"                              class="w-6 h-6"                            >                              <path                                stroke-linecap="round"                                stroke-linejoin="round"                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"                              ></path>                            </svg>                          </span>                          <input                            class="block w-full py-3 pl-12 pr-4 text-base font-medium leading-normal bg-white border border-solid outline-none appearance-none placeholder:text-secondary-dark peer text-stone-500 border-stone-200 bg-clip-padding rounded-2xl"                            placeholder="Search..."                            type="text"                          />                          <span                            onclick="(() => { this.previousElementSibling.value=\'\'})()"                            class="absolute right-0 left-auto mr-4 leading-none -translate-y-1/2 peer-placeholder-shown:hidden top-1/2 hover:text-primary text-muted"                          >                            <svg                              xmlns="http://www.w3.org/2000/svg"                              fill="none"                              viewBox="0 0 24 24"                              stroke-width="1.5"                              stroke="currentColor"                              class="w-6 h-6"                            >                              <path                                stroke-linecap="round"                                stroke-linejoin="round"                                d="M6 18L18 6M6 6l12 12"                              ></path>                            </svg>                          </span>                        </div>                        <div                          class="relative lg:hidden flex items-center sm:ml-2 ml-auto"                        >                          <a                            href="javascript:void(0)"                            class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary"                            onclick="(function(){document.querySelector(\'.group\\/sidebar\').classList.toggle(\'-translate-x-full\');})();"                          >                            <svg                              xmlns="http://www.w3.org/2000/svg"                              fill="none"                              viewBox="0 0 24 24"                              stroke-width="1.5"                              stroke="currentColor"                              class="w-6 h-6"                            >                              <path                                stroke-linecap="round"                                stroke-linejoin="round"                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"                              ></path>                            </svg>                          </a>                        </div>                        <div class="relative flex items-center ml-2 lg:ml-4">                          <a                            href="javascript:void(0)"                            class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary"                          >                            <svg                              xmlns="http://www.w3.org/2000/svg"                              fill="none"                              viewBox="0 0 24 24"                              stroke-width="1.5"                              stroke="currentColor"                              class="w-6 h-6"                            >                              <path                                stroke-linecap="round"                                stroke-linejoin="round"                                d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"                              />                            </svg>                          </a>                        </div>                      </div>                      <div class="flex flex-col">                        <div class="overflow-x-auto pb-4">                          <div *ngIf="albumsLoaded" class="block">                            <div                              class="overflow-x-auto w-full border rounded-lg border-gray-300"                            >                              <table class="w-full rounded-xl overflow-auto">                                <thead>                                  <tr class="bg-gray-50">                                    <th class="">                                      <div class="flex items-center py-5 px-5">                                        <input                                          type="checkbox"                                          value=""                                          class="w-5 h-5 appearance-none border border-gray-300 rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100"                                        />                                      </div>                                    </th>                                    <th                                      scope="col"                                      class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize min-w-[150px]"                                    >                                      Album Details                                    </th>                                    <th                                      scope="col"                                      class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"                                    >                                      No. of Photos                                    </th>                                    <th                                      scope="col"                                      class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"                                    >                                      Creation                                    </th>                                    <th                                      scope="col"                                      class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"                                    >                                      Status                                    </th>                                    <th                                      scope="col"                                      class="p-5 text-left whitespace-nowrap text-sm leading-6 font-semibold text-gray-900 capitalize"                                    >                                      Actions                                    </th>                                  </tr>                                </thead>                                <tbody class="divide-y divide-gray-300">                                  <tr                                    *ngFor="let album of albums"                                    class="bg-white transition-all duration-500 hover:bg-gray-50"                                  >                                    <td class="">                                      <div class="flex items-center py-5 px-5">                                        <input                                          type="checkbox"                                          value=""                                          class="w-5 h-5 appearance-none border border-gray-300 rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100"                                        />                                      </div>                                    </td>                                    <td                                      class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"                                    >                                      <div class="w-38 flex items-center gap-3">                                        <div class="inline-flex w-12 h-12">                                          <img                                            [src]="album.featured_image"                                            alt="aji"                                            class="relative p-1 w-12 h-12 object-cover rounded-2xl"                                          /><span                                            class="absolute w-12 h-12 inline-flex border-2 rounded-2xl border-gray-600 opacity-75"                                          ></span>                                          <span></span>                                        </div>                                        <div class="data">                                          <p                                            class="font-normal text-sm text-gray-900 overflow-hidden whitespace-nowrap max-w-[180px] truncate"                                          >                                            {{ album.title }}                                          </p>                                          <p                                            class="font-normal text-xs leading-5 text-gray-400 overflow-hidden whitespace-nowrap max-w-[180px] truncate"                                          >                                            {{ album.description }}                                          </p>                                        </div>                                      </div>                                    </td>                                    <td                                      class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"                                    >                                      {{ album.no_of_photos }}                                    </td>                                    <td class="px-5 py-3">                                      {{                                        album.created_on.toDate()                                          | date: "short"                                      }}                                      <p                                        class="font-normal text-xs leading-5 text-gray-400"                                      >                                        {{                                          album.created_on.toDate()                                            | date: "medium"                                            | dateAgo                                        }}                                      </p>                                    </td>                                    <td                                      class="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900"                                    >                                      <div                                        *ngIf="album.status == 1"                                        class="py-1.5 px-2.5 bg-emerald-50 rounded-full flex justify-center w-20 items-center gap-1"                                      >                                        <svg                                          width="5"                                          height="6"                                          viewBox="0 0 5 6"                                          fill="none"                                          xmlns="http://www.w3.org/2000/svg"                                        >                                          <circle                                            cx="2.5"                                            cy="3"                                            r="2.5"                                            fill="#059669"                                          ></circle>                                        </svg>                                        <span                                          class="font-medium text-xs text-emerald-600"                                          >Active</span                                        >                                      </div>                                      <div                                        *ngIf="album.status == 2"                                        class="py-1.5 px-2.5 bg-red-50 rounded-full flex w-20 justify-center items-center gap-1"                                      >                                        <svg                                          width="5"                                          height="6"                                          viewBox="0 0 5 6"                                          fill="none"                                          xmlns="http://www.w3.org/2000/svg"                                        >                                          <circle                                            cx="2.5"                                            cy="3"                                            r="2.5"                                            fill="#DC2626"                                          ></circle>                                        </svg>                                        <span                                          class="font-medium text-xs text-red-600"                                          >Cancel</span                                        >                                      </div>                                      <div                                        *ngIf="album.status == 3"                                        class="py-1.5 px-2.5 bg-amber-50 rounded-full flex items-center justify-center w-20 gap-1"                                      >                                        <svg                                          width="5"                                          height="6"                                          viewBox="0 0 5 6"                                          fill="none"                                          xmlns="http://www.w3.org/2000/svg"                                        >                                          <circle                                            cx="2.5"                                            cy="3"                                            r="2.5"                                            fill="#D97706"                                          ></circle>                                        </svg>                                        <span                                          class="font-medium text-xs text-amber-600"                                          >Pending</span                                        >                                      </div>                                    </td>                                    <td class="flex p-5 items-center gap-0.5">                                      <button                                        class="p-2 rounded-full bg-white group transition-all duration-500 hover:bg-indigo-600 flex item-center"                                      >                                        <svg                                          class="cursor-pointer"                                          width="20"                                          height="20"                                          viewBox="0 0 20 20"                                          fill="none"                                          xmlns="http://www.w3.org/2000/svg"                                        >                                          <path                                            class="fill-indigo-500 group-hover:fill-white"                                            d="M9.53414 8.15675L8.96459 7.59496L8.96459 7.59496L9.53414 8.15675ZM13.8911 3.73968L13.3215 3.17789V3.17789L13.8911 3.73968ZM16.3154 3.75892L15.7367 4.31126L15.7367 4.31127L16.3154 3.75892ZM16.38 3.82658L16.9587 3.27423L16.9587 3.27423L16.38 3.82658ZM16.3401 6.13595L15.7803 5.56438L16.3401 6.13595ZM11.9186 10.4658L12.4784 11.0374L11.9186 10.4658ZM11.1223 10.9017L10.9404 10.1226V10.1226L11.1223 10.9017ZM9.07259 10.9951L8.52556 11.5788L8.52556 11.5788L9.07259 10.9951ZM9.09713 8.9664L9.87963 9.1328V9.1328L9.09713 8.9664ZM9.05721 10.9803L8.49542 11.5498H8.49542L9.05721 10.9803ZM17.1679 4.99458L16.368 4.98075V4.98075L17.1679 4.99458ZM15.1107 2.8693L15.1171 2.06932L15.1107 2.8693ZM9.22851 8.51246L8.52589 8.12992L8.52452 8.13247L9.22851 8.51246ZM9.22567 8.51772L8.52168 8.13773L8.5203 8.1403L9.22567 8.51772ZM11.5684 10.7654L11.9531 11.4668L11.9536 11.4666L11.5684 10.7654ZM11.5669 10.7662L11.9507 11.4681L11.9516 11.4676L11.5669 10.7662ZM11.3235 3.30005C11.7654 3.30005 12.1235 2.94188 12.1235 2.50005C12.1235 2.05822 11.7654 1.70005 11.3235 1.70005V3.30005ZM18.3 9.55887C18.3 9.11705 17.9418 8.75887 17.5 8.75887C17.0582 8.75887 16.7 9.11705 16.7 9.55887H18.3ZM3.47631 16.5237L4.042 15.9581H4.042L3.47631 16.5237ZM16.5237 16.5237L15.958 15.9581L15.958 15.9581L16.5237 16.5237ZM10.1037 8.71855L14.4606 4.30148L13.3215 3.17789L8.96459 7.59496L10.1037 8.71855ZM15.7367 4.31127L15.8013 4.37893L16.9587 3.27423L16.8941 3.20657L15.7367 4.31127ZM15.7803 5.56438L11.3589 9.89426L12.4784 11.0374L16.8998 6.70753L15.7803 5.56438ZM10.9404 10.1226C10.3417 10.2624 9.97854 10.3452 9.72166 10.3675C9.47476 10.3888 9.53559 10.3326 9.61962 10.4113L8.52556 11.5788C8.9387 11.966 9.45086 11.9969 9.85978 11.9615C10.2587 11.9269 10.7558 11.8088 11.3042 11.6807L10.9404 10.1226ZM8.31462 8.8C8.19986 9.33969 8.09269 9.83345 8.0681 10.2293C8.04264 10.6393 8.08994 11.1499 8.49542 11.5498L9.619 10.4107C9.70348 10.494 9.65043 10.5635 9.66503 10.3285C9.6805 10.0795 9.75378 9.72461 9.87963 9.1328L8.31462 8.8ZM9.61962 10.4113C9.61941 10.4111 9.6192 10.4109 9.619 10.4107L8.49542 11.5498C8.50534 11.5596 8.51539 11.5693 8.52556 11.5788L9.61962 10.4113ZM15.8013 4.37892C16.0813 4.67236 16.2351 4.83583 16.3279 4.96331C16.4073 5.07234 16.3667 5.05597 16.368 4.98075L17.9678 5.00841C17.9749 4.59682 17.805 4.27366 17.6213 4.02139C17.451 3.78756 17.2078 3.53522 16.9587 3.27423L15.8013 4.37892ZM16.8998 6.70753C17.1578 6.45486 17.4095 6.21077 17.5876 5.98281C17.7798 5.73698 17.9607 5.41987 17.9678 5.00841L16.368 4.98075C16.3693 4.90565 16.4103 4.8909 16.327 4.99749C16.2297 5.12196 16.0703 5.28038 15.7803 5.56438L16.8998 6.70753ZM14.4606 4.30148C14.7639 3.99402 14.9352 3.82285 15.0703 3.71873C15.1866 3.62905 15.1757 3.66984 15.1044 3.66927L15.1171 2.06932C14.6874 2.06591 14.3538 2.25081 14.0935 2.45151C13.8518 2.63775 13.5925 2.9032 13.3215 3.17789L14.4606 4.30148ZM16.8941 3.20657C16.6279 2.92765 16.373 2.65804 16.1345 2.46792C15.8774 2.26298 15.5468 2.07273 15.1171 2.06932L15.1044 3.66927C15.033 3.66871 15.0226 3.62768 15.1372 3.71904C15.2704 3.82522 15.4387 3.999 15.7367 4.31126L16.8941 3.20657ZM8.96459 7.59496C8.82923 7.73218 8.64795 7.90575 8.5259 8.12993L9.93113 8.895C9.92075 8.91406 9.91465 8.91711 9.93926 8.88927C9.97002 8.85445 10.0145 8.80893 10.1037 8.71854L8.96459 7.59496ZM9.87963 9.1328C9.9059 9.00925 9.91925 8.94785 9.93124 8.90366C9.94073 8.86868 9.94137 8.87585 9.93104 8.89515L8.5203 8.1403C8.39951 8.36605 8.35444 8.61274 8.31462 8.8L9.87963 9.1328ZM8.52452 8.13247L8.52168 8.13773L9.92967 8.89772L9.9325 8.89246L8.52452 8.13247ZM11.3589 9.89426C11.27 9.98132 11.2252 10.0248 11.1909 10.055C11.1635 10.0791 11.1658 10.0738 11.1832 10.0642L11.9536 11.4666C12.1727 11.3462 12.3427 11.1703 12.4784 11.0374L11.3589 9.89426ZM11.3042 11.6807C11.4912 11.6371 11.7319 11.5878 11.9507 11.4681L11.1831 10.0643C11.2007 10.0547 11.206 10.0557 11.1697 10.0663C11.1248 10.0793 11.0628 10.0941 10.9404 10.1226L11.3042 11.6807ZM11.1837 10.064L11.1822 10.0648L11.9516 11.4676L11.9531 11.4668L11.1837 10.064ZM16.399 6.10097L13.8984 3.60094L12.7672 4.73243L15.2677 7.23246L16.399 6.10097ZM10.8333 16.7001H9.16667V18.3001H10.8333V16.7001ZM3.3 10.8334V9.16672H1.7V10.8334H3.3ZM9.16667 3.30005H11.3235V1.70005H9.16667V3.30005ZM16.7 9.55887V10.8334H18.3V9.55887H16.7ZM9.16667 16.7001C7.5727 16.7001 6.45771 16.6984 5.61569 16.5851C4.79669 16.475 4.35674 16.2728 4.042 15.9581L2.91063 17.0894C3.5722 17.751 4.40607 18.0369 5.4025 18.1709C6.37591 18.3018 7.61793 18.3001 9.16667 18.3001V16.7001ZM1.7 10.8334C1.7 12.3821 1.6983 13.6241 1.82917 14.5976C1.96314 15.594 2.24905 16.4279 2.91063 17.0894L4.042 15.9581C3.72726 15.6433 3.52502 15.2034 3.41491 14.3844C3.3017 13.5423 3.3 12.4273 3.3 10.8334H1.7ZM10.8333 18.3001C12.3821 18.3001 13.6241 18.3018 14.5975 18.1709C15.5939 18.0369 16.4278 17.751 17.0894 17.0894L15.958 15.9581C15.6433 16.2728 15.2033 16.475 14.3843 16.5851C13.5423 16.6984 12.4273 16.7001 10.8333 16.7001V18.3001ZM16.7 10.8334C16.7 12.4274 16.6983 13.5423 16.5851 14.3844C16.475 15.2034 16.2727 15.6433 15.958 15.9581L17.0894 17.0894C17.7509 16.4279 18.0369 15.594 18.1708 14.5976C18.3017 13.6241 18.3 12.3821 18.3 10.8334H16.7ZM3.3 9.16672C3.3 7.57275 3.3017 6.45776 3.41491 5.61574C3.52502 4.79674 3.72726 4.35679 4.042 4.04205L2.91063 2.91068C2.24905 3.57225 1.96314 4.40612 1.82917 5.40255C1.6983 6.37596 1.7 7.61798 1.7 9.16672H3.3ZM9.16667 1.70005C7.61793 1.70005 6.37591 1.69835 5.4025 1.82922C4.40607 1.96319 3.5722 2.24911 2.91063 2.91068L4.042 4.04205C4.35674 3.72731 4.79669 3.52507 5.61569 3.41496C6.45771 3.30175 7.5727 3.30005 9.16667 3.30005V1.70005Z"                                            fill="#818CF8"                                          ></path>                                        </svg>                                      </button>                                      <button                                        class="p-2 rounded-full bg-white group transition-all duration-500 hover:bg-red-600 flex item-center"                                      >                                        <svg                                          class=""                                          width="20"                                          height="20"                                          viewBox="0 0 20 20"                                          fill="none"                                          xmlns="http://www.w3.org/2000/svg"                                        >                                          <path                                            class="fill-red-600 group-hover:fill-white"                                            d="M4.00031 5.49999V4.69999H3.20031V5.49999H4.00031ZM16.0003 5.49999H16.8003V4.69999H16.0003V5.49999ZM17.5003 5.49999L17.5003 6.29999C17.9421 6.29999 18.3003 5.94183 18.3003 5.5C18.3003 5.05817 17.9421 4.7 17.5003 4.69999L17.5003 5.49999ZM9.30029 9.24997C9.30029 8.80814 8.94212 8.44997 8.50029 8.44997C8.05847 8.44997 7.70029 8.80814 7.70029 9.24997H9.30029ZM7.70029 13.75C7.70029 14.1918 8.05847 14.55 8.50029 14.55C8.94212 14.55 9.30029 14.1918 9.30029 13.75H7.70029ZM12.3004 9.24997C12.3004 8.80814 11.9422 8.44997 11.5004 8.44997C11.0585 8.44997 10.7004 8.80814 10.7004 9.24997H12.3004ZM10.7004 13.75C10.7004 14.1918 11.0585 14.55 11.5004 14.55C11.9422 14.55 12.3004 14.1918 12.3004 13.75H10.7004ZM4.00031 6.29999H16.0003V4.69999H4.00031V6.29999ZM15.2003 5.49999V12.5H16.8003V5.49999H15.2003ZM11.0003 16.7H9.00031V18.3H11.0003V16.7ZM4.80031 12.5V5.49999H3.20031V12.5H4.80031ZM9.00031 16.7C7.79918 16.7 6.97882 16.6983 6.36373 16.6156C5.77165 16.536 5.49093 16.3948 5.29823 16.2021L4.16686 17.3334C4.70639 17.873 5.38104 18.0979 6.15053 18.2013C6.89702 18.3017 7.84442 18.3 9.00031 18.3V16.7ZM3.20031 12.5C3.20031 13.6559 3.19861 14.6033 3.29897 15.3498C3.40243 16.1193 3.62733 16.7939 4.16686 17.3334L5.29823 16.2021C5.10553 16.0094 4.96431 15.7286 4.88471 15.1366C4.80201 14.5215 4.80031 13.7011 4.80031 12.5H3.20031ZM15.2003 12.5C15.2003 13.7011 15.1986 14.5215 15.1159 15.1366C15.0363 15.7286 14.8951 16.0094 14.7024 16.2021L15.8338 17.3334C16.3733 16.7939 16.5982 16.1193 16.7016 15.3498C16.802 14.6033 16.8003 13.6559 16.8003 12.5H15.2003ZM11.0003 18.3C12.1562 18.3 13.1036 18.3017 13.8501 18.2013C14.6196 18.0979 15.2942 17.873 15.8338 17.3334L14.7024 16.2021C14.5097 16.3948 14.229 16.536 13.6369 16.6156C13.0218 16.6983 12.2014 16.7 11.0003 16.7V18.3ZM2.50031 4.69999C2.22572 4.7 2.04405 4.7 1.94475 4.7C1.89511 4.7 1.86604 4.7 1.85624 4.7C1.85471 4.7 1.85206 4.7 1.851 4.7C1.05253 5.50059 1.85233 6.3 1.85256 6.3C1.85273 6.3 1.85297 6.3 1.85327 6.3C1.85385 6.3 1.85472 6.3 1.85587 6.3C1.86047 6.3 1.86972 6.3 1.88345 6.3C1.99328 6.3 2.39045 6.3 2.9906 6.3C4.19091 6.3 6.2032 6.3 8.35279 6.3C10.5024 6.3 12.7893 6.3 14.5387 6.3C15.4135 6.3 16.1539 6.3 16.6756 6.3C16.9364 6.3 17.1426 6.29999 17.2836 6.29999C17.3541 6.29999 17.4083 6.29999 17.4448 6.29999C17.4631 6.29999 17.477 6.29999 17.4863 6.29999C17.4909 6.29999 17.4944 6.29999 17.4968 6.29999C17.498 6.29999 17.4988 6.29999 17.4994 6.29999C17.4997 6.29999 17.4999 6.29999 17.5001 6.29999C17.5002 6.29999 17.5003 6.29999 17.5003 5.49999C17.5003 4.69999 17.5002 4.69999 17.5001 4.69999C17.4999 4.69999 17.4997 4.69999 17.4994 4.69999C17.4988 4.69999 17.498 4.69999 17.4968 4.69999C17.4944 4.69999 17.4909 4.69999 17.4863 4.69999C17.477 4.69999 17.4631 4.69999 17.4448 4.69999C17.4083 4.69999 17.3541 4.69999 17.2836 4.69999C17.1426 4.7 16.9364 4.7 16.6756 4.7C16.1539 4.7 15.4135 4.7 14.5387 4.7C12.7893 4.7 10.5024 4.7 8.35279 4.7C6.2032 4.7 4.19091 4.7 2.9906 4.7C2.39044 4.7 1.99329 4.7 1.88347 4.7C1.86974 4.7 1.86051 4.7 1.85594 4.7C1.8548 4.7 1.85396 4.7 1.85342 4.7C1.85315 4.7 1.85298 4.7 1.85288 4.7C1.85284 4.7 2.65253 5.49941 1.85408 6.3C1.85314 6.3 1.85296 6.3 1.85632 6.3C1.86608 6.3 1.89511 6.3 1.94477 6.3C2.04406 6.3 2.22573 6.3 2.50031 6.29999L2.50031 4.69999ZM7.05028 5.49994V4.16661H5.45028V5.49994H7.05028ZM7.91695 3.29994H12.0836V1.69994H7.91695V3.29994ZM12.9503 4.16661V5.49994H14.5503V4.16661H12.9503ZM12.0836 3.29994C12.5623 3.29994 12.9503 3.68796 12.9503 4.16661H14.5503C14.5503 2.8043 13.4459 1.69994 12.0836 1.69994V3.29994ZM7.05028 4.16661C7.05028 3.68796 7.4383 3.29994 7.91695 3.29994V1.69994C6.55465 1.69994 5.45028 2.8043 5.45028 4.16661H7.05028ZM2.50031 6.29999C4.70481 6.29998 6.40335 6.29998 8.1253 6.29997C9.84725 6.29996 11.5458 6.29995 13.7503 6.29994L13.7503 4.69994C11.5458 4.69995 9.84724 4.69996 8.12529 4.69997C6.40335 4.69998 4.7048 4.69998 2.50031 4.69999L2.50031 6.29999ZM13.7503 6.29994L17.5003 6.29999L17.5003 4.69999L13.7503 4.69994L13.7503 6.29994ZM7.70029 9.24997V13.75H9.30029V9.24997H7.70029ZM10.7004 9.24997V13.75H12.3004V9.24997H10.7004Z"                                            fill="#F87171"                                          ></path>                                        </svg>                                      </button>                                      <button                                        [routerLink]="[                                          \'/album\',                                          album.userId,                                          album.id                                        ]"                                        class="p-2 rounded-full bg-white group transition-all duration-500 hover:text-green-400 flex item-center"                                      >                                        <svg                                          width="20"                                          height="20"                                          xmlns="http://www.w3.org/2000/svg"                                          fill="none"                                          viewBox="0 0 24 24"                                          stroke-width="1.5"                                          stroke="currentColor"                                          class="w-6 h-6"                                        >                                          <path                                            stroke-linecap="round"                                            stroke-linejoin="round"                                            d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"                                          />                                        </svg>                                      </button>                                    </td>                                  </tr>                                </tbody>                              </table>                            </div>                            <nav                              class="flex items-center justify-center py-4"                              aria-label="Table navigation"                            >                              <ul                                class="flex items-center justify-center text-sm h-auto gap-12"                              >                                <li>                                  <a                                    href="javascript:;"                                    class="flex items-center justify-center gap-2 px-3 h-8 ml-0 text-gray-500 bg-white font-medium text-base leading-7 hover:text-gray-700"                                  >                                    <svg                                      width="21"                                      height="20"                                      viewBox="0 0 21 20"                                      fill="none"                                      xmlns="http://www.w3.org/2000/svg"                                    >                                      <path                                        d="M13.0002 14.9999L8 9.99967L13.0032 4.99652"                                        stroke="black"                                        stroke-width="1.6"                                        stroke-linecap="round"                                        stroke-linejoin="round"                                      ></path>                                    </svg>                                    Back                                  </a>                                </li>                                <li>                                  <ul                                    class="flex items-center justify-center gap-4"                                  >                                    <li>                                      <a                                        href="javascript:;"                                        class="font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full bg-white transition-all duration-500 hover:bg-indigo-600 hover:text-white"                                        >1</a                                      >                                    </li>                                    <li>                                      <a                                        href="javascript:;"                                        class="font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full bg-white transition-all duration-500 hover:bg-indigo-600 hover:text-white"                                        >2</a                                      >                                    </li>                                    <li>                                      <a                                        href="javascript:;"                                        class="font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full bg-white transition-all duration-500 hover:bg-indigo-600 hover:text-white"                                        >3</a                                      >                                    </li>                                    <li>                                      <a                                        href="javascript:;"                                        class="font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full bg-white transition-all duration-500 hover:bg-indigo-600 hover:text-white"                                        >4</a                                      >                                    </li>                                    <li>                                      <a                                        href="javascript:;"                                        class="font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full bg-white transition-all duration-500 hover:bg-indigo-600 hover:text-white"                                        >5</a                                      >                                    </li>                                    <li>                                      <a                                        href="javascript:;"                                        class="font-normal text-base leading-7 text-gray-500 py-2.5 px-4 rounded-full"                                      >                                        <svg                                          width="21"                                          height="20"                                          viewBox="0 0 21 20"                                          fill="none"                                          xmlns="http://www.w3.org/2000/svg"                                        >                                          <path                                            d="M5.52754 10.001H5.47754M10.5412 10.001H10.4912M15.5549 10.001H15.5049"                                            stroke="black"                                            stroke-width="2.5"                                            stroke-linecap="round"                                          ></path>                                        </svg>                                      </a>                                    </li>                                  </ul>                                </li>                                <li>                                  <a                                    href="javascript:;"                                    class="flex items-center justify-center gap-2 px-3 h-8 ml-0 text-gray-500 bg-white font-medium text-base leading-7 hover:text-gray-700"                                  >                                    next                                    <svg                                      width="21"                                      height="20"                                      viewBox="0 0 21 20"                                      fill="none"                                      xmlns="http://www.w3.org/2000/svg"                                    >                                      <path                                        d="M8.00295 4.99646L13.0032 9.99666L8 14.9998"                                        stroke="black"                                        stroke-width="1.6"                                        stroke-linecap="round"                                        stroke-linejoin="round"                                      ></path>                                    </svg>                                  </a>                                </li>                              </ul>                            </nav>                          </div>                          <div                            *ngIf="!albumsLoaded"                            role="status"                            class="sm:w-full p-4 my-10 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded shadow animate-pulse dark:divide-gray-700 md:p-6 dark:border-gray-700"                          >                            <div class="flex items-center justify-between">                              <div>                                <div                                  class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"                                ></div>                                <div                                  class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"                                ></div>                              </div>                              <div                                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"                              ></div>                            </div>                            <div class="flex items-center justify-between pt-4">                              <div>                                <div                                  class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"                                ></div>                                <div                                  class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"                                ></div>                              </div>                              <div                                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"                              ></div>                            </div>                            <div class="flex items-center justify-between pt-4">                              <div>                                <div                                  class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"                                ></div>                                <div                                  class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"                                ></div>                              </div>                              <div                                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"                              ></div>                            </div>                            <div class="flex items-center justify-between pt-4">                              <div>                                <div                                  class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"                                ></div>                                <div                                  class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"                                ></div>                              </div>                              <div                                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"                              ></div>                            </div>                            <div class="flex items-center justify-between pt-4">                              <div>                                <div                                  class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"                                ></div>                                <div                                  class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"                                ></div>                              </div>                              <div                                class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"                              ></div>                            </div>                            <span class="sr-only">Loading...</span>                          </div>                        </div>                      </div>                    </div>                  </div>                </div>                <div                  class="w-full max-w-full px-3 mb-6 lg:w-4/12 sm:flex-none xl:mb-0"                >                  <h3 class="font-bold mb-5 text-2xl">Featured albums</h3>                  <div                    class="relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-neutral-100 mb-5"                  >                    <!-- card body  -->                    <div class="flex-auto block py-8 pt-6 px-9">                      <div                        class="flex flex-col justify-items-start items-center"                        style="overflow-y: auto"                      >                        <div *ngIf="!featuredAlbumsLoaded">                          <div                            role="status"                            class="max-w-lg my-4 sm:max-w-lg sm:w-[28em] p-4 border border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700"                          >                            <div                              class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700"                            >                              <svg                                class="w-10 h-10 text-gray-200 dark:text-gray-600"                                aria-hidden="true"                                xmlns="http://www.w3.org/2000/svg"                                fill="currentColor"                                viewBox="0 0 16 20"                              >                                <path                                  d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"                                />                                <path                                  d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"                                />                              </svg>                            </div>                            <div class="flex items-center mt-4">                              <svg                                class="w-10 h-10 me-3 text-gray-200 dark:text-gray-700"                                aria-hidden="true"                                xmlns="http://www.w3.org/2000/svg"                                fill="currentColor"                                viewBox="0 0 20 20"                              >                                <path                                  d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"                                />                              </svg>                              <div>                                <div                                  class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"                                ></div>                                <div                                  class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"                                ></div>                              </div>                            </div>                            <span class="sr-only">Loading...</span>                          </div>                          <div                            role="status"                            class="max-w-lg my-4 sm:max-w-lg sm:w-[28em] p-4 border border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700"                          >                            <div                              class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700"                            >                              <svg                                class="w-10 h-10 text-gray-200 dark:text-gray-600"                                aria-hidden="true"                                xmlns="http://www.w3.org/2000/svg"                                fill="currentColor"                                viewBox="0 0 16 20"                              >                                <path                                  d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"                                />                                <path                                  d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"                                />                              </svg>                            </div>                            <div class="flex items-center mt-4">                              <svg                                class="w-10 h-10 me-3 text-gray-200 dark:text-gray-700"                                aria-hidden="true"                                xmlns="http://www.w3.org/2000/svg"                                fill="currentColor"                                viewBox="0 0 20 20"                              >                                <path                                  d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"                                />                              </svg>                              <div>                                <div                                  class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-2"                                ></div>                                <div                                  class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-700"                                ></div>                              </div>                            </div>                            <span class="sr-only">Loading...</span>                          </div>                        </div>                        <div *ngIf="featuredAlbumsLoaded">                          <div                            *ngFor="let album of featuredAlbums"                            class="max-w-md bg-white rounded-xl overflow-hidden cursor-pointer my-3 hover:scale-105 transform transition-all duration-500"                          >                            <!-- header -->                            <div class="flex justify-between p-6">                              <!-- header -->                              <div                                class="grid grid-cols-6 space-x-4 items-center"                              >                                <div class="w-12 h-12 col-span-1">                                  <img                                    class="rounded-full w-full h-full object-cover"                                    [src]="user.photoURL"                                    alt=""                                  />                                  <div></div>                                </div>                                <div class="space-y-2 col-span-5">                                  <div class="flex space-x-2 items-center">                                    <h2 class="text-base text-black">                                      {{                                        user.displayName                                          ? (user.displayName | titlecase)                                          : (user.email | titlecase)                                      }}                                    </h2>                                    <svg                                      class="h-4 w-4 text-blue-500"                                      fill="none"                                      viewBox="0 0 24 24"                                      stroke="currentColor"                                      stroke-width="2"                                    >                                      <path                                        stroke-linecap="round"                                        stroke-linejoin="round"                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"                                      />                                    </svg>                                    <div class="text-xs text-slate-400">                                      posted an update                                    </div>                                  </div>                                  <p class="text-xs text-slate-400">                                    {{                                      album.created_on.toDate() | date: "medium"                                    }}                                  </p>                                  <p class="text-xs text-slate-400">                                    {{                                      album.created_on.toDate()                                        | date: "medium"                                        | dateAgo                                    }}                                  </p>                                  <!--content-->                                  <div>                                    <p                                      class="text-sm leading-6 text-slate-500 truncate"                                    >                                      {{ album.description }}                                    </p>                                  </div>                                </div>                              </div>                            </div>                            <div class="p-4">                              <!-- image grid-->                              <div class="grid grid-cols-6 col-span-2 gap-2">                                <div                                  class="overflow-hidden rounded-xl col-span-3 max-h-[14rem]"                                >                                  <img                                    class="h-full w-full object-cover"                                    [src]="album.featured_image"                                    alt=""                                  />                                </div>                                <div                                  class="overflow-hidden rounded-xl col-span-3 max-h-[14rem]"                                >                                  <img                                    class="h-full w-full object-cover"                                    [src]="album.featured_image_1"                                    alt=""                                  />                                </div>                                <div                                  class="overflow-hidden rounded-xl col-span-2 max-h-[10rem]"                                >                                  <img                                    class="h-full w-full object-cover"                                    [src]="album.featured_image_2"                                    alt=""                                  />                                </div>                                <div                                  class="overflow-hidden rounded-xl col-span-2 max-h-[10rem]"                                >                                  <img                                    class="h-full w-full object-cover"                                    [src]="album.featured_image_3"                                    alt=""                                  />                                </div>                                <div                                  class="relative overflow-hidden rounded-xl col-span-2 max-h-[10rem]"                                >                                  <div                                    class="text-white text-xl absolute inset-0 bg-slate-900/80 flex justify-center items-center"                                  >                                    + {{ album.no_of_photos - 4 }}                                  </div>                                  <img                                    class="h-full w-full object-cover"                                    src="https://images.unsplash.com/photo-1560393464-5c69a73c5770?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"                                    alt=""                                  />                                </div>                              </div>                              <div class="flex space-x-6 items-center py-4">                                <div class="flex space-x-2 items-center">                                  <span>                                    <svg                                      xmlns="http://www.w3.org/2000/svg"                                      class="h-6 w-6 text-gray-600"                                      fill="none"                                      viewBox="0 0 24 24"                                      stroke="currentColor"                                    >                                      <path                                        stroke-linecap="round"                                        stroke-linejoin="round"                                        stroke-width="2"                                        d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"                                      />                                    </svg>                                  </span>                                  <span class="text-gray-700 font-semibold"                                    >20</span                                  >                                </div>                                <div class="flex space-x-2 items-center pr-4">                                  <span>                                    <svg                                      xmlns="http://www.w3.org/2000/svg"                                      class="h-6 w-6 text-red-600 hover:text-red-500"                                      viewBox="0 0 20 20"                                      fill="currentColor"                                    >                                      <path                                        fill-rule="evenodd"                                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"                                        clip-rule="evenodd"                                      />                                    </svg>                                  </span>                                  <span class="text-gray-700 font-semibold"                                    >22</span                                  >                                </div>                                <div class="flex space-x-2 items-center pr-4">                                  <span>                                    <svg                                      class="h-6 w-6 text-red-600 hover:text-red-500"                                      xmlns="http://www.w3.org/2000/svg"                                      fill="none"                                      viewBox="0 0 24 24"                                      stroke-width="1.5"                                      stroke="currentColor"                                      class="w-6 h-6"                                    >                                      <path                                        stroke-linecap="round"                                        stroke-linejoin="round"                                        d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"                                      />                                    </svg>                                  </span>                                  <span class="text-gray-700 font-semibold">{{                                    album.no_of_photos                                  }}</span>                                </div>                              </div>                            </div>                          </div>                        </div>                      </div>                    </div>                    <!-- end card body  -->                  </div>                </div>              </div>            </div>          </div>        </div>      </div>    </div>    <app-footer></app-footer>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AlbumComponent', 'selector': 'app-album'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'PhotoComponent', 'selector': 'app-photo'},{'name': 'SideNavComponent', 'selector': 'app-side-nav'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VerificationComponent', 'selector': 'app-verification'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'UserComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

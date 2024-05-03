@@ -1,0 +1,464 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>si-assessment documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">si-assessment documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  NavBarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/nav-bar/nav-bar/nav-bar.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-nav-bar</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./nav-bar.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./nav-bar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-nav-bar&#x27;,
+  templateUrl: &#x27;./nav-bar.component.html&#x27;,
+  styleUrls: [&#x27;./nav-bar.component.scss&#x27;]
+})
+export class NavBarComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;nav class&#x3D;&quot;flex h-28 mb-5 lg:h-[96px]&quot; id&#x3D;&quot;navbarTop&quot; navbar-scroll&#x3D;&quot;true&quot;&gt;
+  &lt;div
+    class&#x3D;&quot;sm:flex items-stretch justify-between grow lg:mb-0 mb-5 py-5 px-10&quot;
+  &gt;
+    &lt;h3
+      class&#x3D;&quot;flex flex-col items-start justify-center m-2 ml-0 font-medium text-xl/tight text-dark&quot;
+    &gt;
+      &lt;span class&#x3D;&quot;mr-3 font-semibold text-dark&quot;&gt;SI Technical Assessment &lt;/span&gt;
+      &lt;span class&#x3D;&quot;mt-1 font-medium text-secondary-dark text-lg/normal&quot;
+        &gt;All details on the user album management system
+      &lt;/span&gt;
+    &lt;/h3&gt;
+    &lt;div class&#x3D;&quot;flex items-center lg:shrink-0 lg:flex-nowrap&quot;&gt;
+      &lt;div class&#x3D;&quot;relative flex items-center lg:ml-4 sm:mr-0 mr-2&quot;&gt;
+        &lt;span
+          class&#x3D;&quot;absolute ml-4 leading-none -translate-y-1/2 top-1/2 text-muted&quot;
+        &gt;
+          &lt;svg
+            xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+            fill&#x3D;&quot;none&quot;
+            viewBox&#x3D;&quot;0 0 24 24&quot;
+            stroke-width&#x3D;&quot;1.5&quot;
+            stroke&#x3D;&quot;currentColor&quot;
+            class&#x3D;&quot;w-6 h-6&quot;
+          &gt;
+            &lt;path
+              stroke-linecap&#x3D;&quot;round&quot;
+              stroke-linejoin&#x3D;&quot;round&quot;
+              d&#x3D;&quot;M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z&quot;
+            &gt;&lt;/path&gt;
+          &lt;/svg&gt;
+        &lt;/span&gt;
+        &lt;input
+          class&#x3D;&quot;block w-full py-3 pl-12 pr-4 text-base font-medium leading-normal bg-white border border-solid outline-none appearance-none placeholder:text-secondary-dark peer text-stone-500 border-stone-200 bg-clip-padding rounded-2xl&quot;
+          placeholder&#x3D;&quot;Search...&quot;
+          type&#x3D;&quot;text&quot;
+        /&gt;
+        &lt;span
+          onclick&#x3D;&quot;(() &#x3D;&gt; { this.previousElementSibling.value&#x3D;&#x27;&#x27;})()&quot;
+          class&#x3D;&quot;absolute right-0 left-auto mr-4 leading-none -translate-y-1/2 peer-placeholder-shown:hidden top-1/2 hover:text-primary text-muted&quot;
+        &gt;
+          &lt;svg
+            xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+            fill&#x3D;&quot;none&quot;
+            viewBox&#x3D;&quot;0 0 24 24&quot;
+            stroke-width&#x3D;&quot;1.5&quot;
+            stroke&#x3D;&quot;currentColor&quot;
+            class&#x3D;&quot;w-6 h-6&quot;
+          &gt;
+            &lt;path
+              stroke-linecap&#x3D;&quot;round&quot;
+              stroke-linejoin&#x3D;&quot;round&quot;
+              d&#x3D;&quot;M6 18L18 6M6 6l12 12&quot;
+            &gt;&lt;/path&gt;
+          &lt;/svg&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;relative lg:hidden flex items-center sm:ml-2 ml-auto&quot;&gt;
+        &lt;a
+          href&#x3D;&quot;javascript:void(0)&quot;
+          class&#x3D;&quot;flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary&quot;
+          onclick&#x3D;&quot;(function(){document.querySelector(&#x27;.group\\/sidebar&#x27;).classList.toggle(&#x27;-translate-x-full&#x27;);})();&quot;
+        &gt;
+          &lt;svg
+            xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+            fill&#x3D;&quot;none&quot;
+            viewBox&#x3D;&quot;0 0 24 24&quot;
+            stroke-width&#x3D;&quot;1.5&quot;
+            stroke&#x3D;&quot;currentColor&quot;
+            class&#x3D;&quot;w-6 h-6&quot;
+          &gt;
+            &lt;path
+              stroke-linecap&#x3D;&quot;round&quot;
+              stroke-linejoin&#x3D;&quot;round&quot;
+              d&#x3D;&quot;M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5&quot;
+            &gt;&lt;/path&gt;
+          &lt;/svg&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;relative flex items-center ml-2 lg:ml-4&quot;&gt;
+        &lt;a
+          href&#x3D;&quot;javascript:void(0)&quot;
+          class&#x3D;&quot;flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary&quot;
+        &gt;
+          &lt;svg
+            xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+            fill&#x3D;&quot;none&quot;
+            viewBox&#x3D;&quot;0 0 24 24&quot;
+            stroke-width&#x3D;&quot;1.5&quot;
+            stroke&#x3D;&quot;currentColor&quot;
+            class&#x3D;&quot;w-6 h-6&quot;
+          &gt;
+            &lt;path
+              stroke-linecap&#x3D;&quot;round&quot;
+              stroke-linejoin&#x3D;&quot;round&quot;
+              d&#x3D;&quot;M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z&quot;
+            &gt;&lt;/path&gt;
+            &lt;path
+              stroke-linecap&#x3D;&quot;round&quot;
+              stroke-linejoin&#x3D;&quot;round&quot;
+              d&#x3D;&quot;M15 12a3 3 0 11-6 0 3 3 0 016 0z&quot;
+            &gt;&lt;/path&gt;
+          &lt;/svg&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;relative flex items-center ml-2 lg:ml-4&quot;&gt;
+        &lt;a
+          href&#x3D;&quot;javascript:void(0)&quot;
+          class&#x3D;&quot;flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary&quot;
+        &gt;
+          &lt;svg
+            xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+            fill&#x3D;&quot;none&quot;
+            viewBox&#x3D;&quot;0 0 24 24&quot;
+            stroke-width&#x3D;&quot;1.5&quot;
+            stroke&#x3D;&quot;currentColor&quot;
+            class&#x3D;&quot;w-6 h-6&quot;
+          &gt;
+            &lt;path
+              stroke-linecap&#x3D;&quot;round&quot;
+              stroke-linejoin&#x3D;&quot;round&quot;
+              d&#x3D;&quot;M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5&quot;
+            &gt;&lt;/path&gt;
+          &lt;/svg&gt;
+          &lt;div
+            class&#x3D;&quot;absolute justify-center w-5 h-5 text-base font-semibold leading-normal text-center text-white text-sm align-middle transition-colors duration-150 ease-in-out shadow-none cursor-pointer rounded-xl bg-primary hover:bg-primary-dark active:bg-primary-dark focus:bg-primary-dark top-0 right-0 -me-1 -mt-2&quot;
+          &gt;
+            &lt;span class&#x3D;&quot;text-sm&quot;&gt;6&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./nav-bar.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><nav class="flex h-28 mb-5 lg:h-[96px]" id="navbarTop" navbar-scroll="true">  <div    class="sm:flex items-stretch justify-between grow lg:mb-0 mb-5 py-5 px-10"  >    <h3      class="flex flex-col items-start justify-center m-2 ml-0 font-medium text-xl/tight text-dark"    >      <span class="mr-3 font-semibold text-dark">SI Technical Assessment </span>      <span class="mt-1 font-medium text-secondary-dark text-lg/normal"        >All details on the user album management system      </span>    </h3>    <div class="flex items-center lg:shrink-0 lg:flex-nowrap">      <div class="relative flex items-center lg:ml-4 sm:mr-0 mr-2">        <span          class="absolute ml-4 leading-none -translate-y-1/2 top-1/2 text-muted"        >          <svg            xmlns="http://www.w3.org/2000/svg"            fill="none"            viewBox="0 0 24 24"            stroke-width="1.5"            stroke="currentColor"            class="w-6 h-6"          >            <path              stroke-linecap="round"              stroke-linejoin="round"              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"            ></path>          </svg>        </span>        <input          class="block w-full py-3 pl-12 pr-4 text-base font-medium leading-normal bg-white border border-solid outline-none appearance-none placeholder:text-secondary-dark peer text-stone-500 border-stone-200 bg-clip-padding rounded-2xl"          placeholder="Search..."          type="text"        />        <span          onclick="(() => { this.previousElementSibling.value=\'\'})()"          class="absolute right-0 left-auto mr-4 leading-none -translate-y-1/2 peer-placeholder-shown:hidden top-1/2 hover:text-primary text-muted"        >          <svg            xmlns="http://www.w3.org/2000/svg"            fill="none"            viewBox="0 0 24 24"            stroke-width="1.5"            stroke="currentColor"            class="w-6 h-6"          >            <path              stroke-linecap="round"              stroke-linejoin="round"              d="M6 18L18 6M6 6l12 12"            ></path>          </svg>        </span>      </div>      <div class="relative lg:hidden flex items-center sm:ml-2 ml-auto">        <a          href="javascript:void(0)"          class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary"          onclick="(function(){document.querySelector(\'.group\\/sidebar\').classList.toggle(\'-translate-x-full\');})();"        >          <svg            xmlns="http://www.w3.org/2000/svg"            fill="none"            viewBox="0 0 24 24"            stroke-width="1.5"            stroke="currentColor"            class="w-6 h-6"          >            <path              stroke-linecap="round"              stroke-linejoin="round"              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"            ></path>          </svg>        </a>      </div>      <div class="relative flex items-center ml-2 lg:ml-4">        <a          href="javascript:void(0)"          class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary"        >          <svg            xmlns="http://www.w3.org/2000/svg"            fill="none"            viewBox="0 0 24 24"            stroke-width="1.5"            stroke="currentColor"            class="w-6 h-6"          >            <path              stroke-linecap="round"              stroke-linejoin="round"              d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"            ></path>            <path              stroke-linecap="round"              stroke-linejoin="round"              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"            ></path>          </svg>        </a>      </div>      <div class="relative flex items-center ml-2 lg:ml-4">        <a          href="javascript:void(0)"          class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary"        >          <svg            xmlns="http://www.w3.org/2000/svg"            fill="none"            viewBox="0 0 24 24"            stroke-width="1.5"            stroke="currentColor"            class="w-6 h-6"          >            <path              stroke-linecap="round"              stroke-linejoin="round"              d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5"            ></path>          </svg>          <div            class="absolute justify-center w-5 h-5 text-base font-semibold leading-normal text-center text-white text-sm align-middle transition-colors duration-150 ease-in-out shadow-none cursor-pointer rounded-xl bg-primary hover:bg-primary-dark active:bg-primary-dark focus:bg-primary-dark top-0 right-0 -me-1 -mt-2"          >            <span class="text-sm">6</span>          </div>        </a>      </div>    </div>  </div></nav></div>'
+    var COMPONENTS = [{'name': 'AlbumComponent', 'selector': 'app-album'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'PhotoComponent', 'selector': 'app-photo'},{'name': 'SideNavComponent', 'selector': 'app-side-nav'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VerificationComponent', 'selector': 'app-verification'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NavBarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NavBarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

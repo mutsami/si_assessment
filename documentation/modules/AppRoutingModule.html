@@ -130,17 +130,52 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { LoginComponent } from &#x27;./pages/login/login.component&#x27;;
+import { AuthGuard } from &#x27;./guards/auth.guard&#x27;;
+import { VerificationComponent } from &#x27;./components/verification/verification.component&#x27;;
 
 const routes: Routes &#x3D; [
-  {path:&quot;&quot;,component:LoginComponent},
-
+  { path: &#x27;&#x27;, component: LoginComponent },
+  {
+    path: &#x27;user&#x27;,
+    loadChildren: () &#x3D;&gt;
+      &quot;import(&#x27;./pages/user/user.module&#x27;).then((m) &#x3D;&gt; m.UserModule)&quot;,
+    /**
+     * is used in Angular routing configuration to specify a guard for protecting a route.
+     * The AuthGuard class contains login to determine if the user is authorized to access the above route
+     * based on there current logged in status
+     */
+    canActivate: [AuthGuard],
+  },
+  {
+    path: &#x27;album&#x27;,
+    loadChildren: () &#x3D;&gt;
+      &quot;import(&#x27;./pages/album/album.module&#x27;).then((m) &#x3D;&gt; m.AlbumModule)&quot;,
+    /**
+     * is used in Angular routing configuration to specify a guard for protecting a route.
+     * The AuthGuard class contains login to determine if the user is authorized to access the above route
+     * based on there current logged in status
+     */
+    canActivate: [AuthGuard],
+  },
+  {
+    path: &#x27;photo&#x27;,
+    loadChildren: () &#x3D;&gt;
+      &quot;import(&#x27;./pages/photo/photo.module&#x27;).then((m) &#x3D;&gt; m.PhotoModule)&quot;,
+    /**
+     * is used in Angular routing configuration to specify a guard for protecting a route.
+     * The AuthGuard class contains login to determine if the user is authorized to access the above route
+     * based on there current logged in status
+     */
+    canActivate: [AuthGuard],
+  },
+  { path: &#x27;verification&#x27;, component: VerificationComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 </code></pre>
     </div>
 </div>

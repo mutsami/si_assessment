@@ -1,0 +1,506 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>si-assessment documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">si-assessment documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  FooterComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/footer/footer/footer.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-footer</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./footer.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./footer.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-footer&#x27;,
+  templateUrl: &#x27;./footer.component.html&#x27;,
+  styleUrls: [&#x27;./footer.component.scss&#x27;]
+})
+export class FooterComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;footer class&#x3D;&quot;footer&quot;&gt;
+  &lt;div
+    class&#x3D;&quot;px-6 py-4 text-sm dark:bg-gray-800 bg-gray-900 text-gray-100 relative overflow-hidden px-8 py-6&quot;
+  &gt;
+    &lt;div class&#x3D;&quot;flex items-center justify-between&quot;&gt;
+      &lt;div class&#x3D;&quot;flex items-center gap-3&quot;&gt;
+        &lt;h5 class&#x3D;&quot;forge-h5 text-gray-100&quot;&gt;Application&lt;/h5&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;py-2&quot;&gt;
+      &lt;svg
+        width&#x3D;&quot;314&quot;
+        height&#x3D;&quot;214&quot;
+        viewBox&#x3D;&quot;0 0 314 214&quot;
+        fill&#x3D;&quot;none&quot;
+        xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+        class&#x3D;&quot;absolute right-0 top-0 -z-10 sm:z-10&quot;
+      &gt;
+        &lt;path
+          d&#x3D;&quot;M174.5 6V-23.5L233 36H204.5C187.931 36 174.5 22.5685 174.5 6Z&quot;
+          fill&#x3D;&quot;#465467&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M174.5 6V-23.5L116 36H144.5C161.069 36 174.5 22.5685 174.5 6Z&quot;
+          fill&#x3D;&quot;#151E2C&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M116.5 65.5V36L175 95.5H146.5C129.931 95.5 116.5 82.0685 116.5 65.5Z&quot;
+          fill&#x3D;&quot;#465467&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M116.5 65.5V36L58 95.5H86.5C103.069 95.5 116.5 82.0685 116.5 65.5Z&quot;
+          fill&#x3D;&quot;#2F3B4B&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M59.5 125V95.5L118 155H89.5C72.9315 155 59.5 141.569 59.5 125Z&quot;
+          fill&#x3D;&quot;#151E2C&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M59.5 125V95.5L1.00003 155H29.5C46.0686 155 59.5 141.569 59.5 125Z&quot;
+          fill&#x3D;&quot;#2F3B4B&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M58.5 184.5L58.5 214L-5.20166e-06 154.5L28.5 154.5C45.0685 154.5 58.5 167.931 58.5 184.5Z&quot;
+          fill&#x3D;&quot;#151E2C&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M58.5 184.5L58.5 214L117 154.5L88.5 154.5C71.9315 154.5 58.5 167.931 58.5 184.5Z&quot;
+          fill&#x3D;&quot;#2F3B4B&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M174.5 125V95.5L233 155H204.5C187.931 155 174.5 141.569 174.5 125Z&quot;
+          fill&#x3D;&quot;#151E2C&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M174.5 125V95.5L116 155H144.5C161.069 155 174.5 141.569 174.5 125Z&quot;
+          fill&#x3D;&quot;#2F3B4B&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M173.5 184.5L173.5 214L115 154.5L143.5 154.5C160.069 154.5 173.5 167.931 173.5 184.5Z&quot;
+          fill&#x3D;&quot;#151E2C&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M173.5 184.5L173.5 214L232 154.5L203.5 154.5C186.931 154.5 173.5 167.931 173.5 184.5Z&quot;
+          fill&#x3D;&quot;#2F3B4B&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M289.5 125V95.5L348 155H319.5C302.931 155 289.5 141.569 289.5 125Z&quot;
+          fill&#x3D;&quot;#151E2C&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M289.5 125V95.5L231 155H259.5C276.069 155 289.5 141.569 289.5 125Z&quot;
+          fill&#x3D;&quot;#2F3B4B&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M288.5 184.5L288.5 214L230 154.5L258.5 154.5C275.069 154.5 288.5 167.931 288.5 184.5Z&quot;
+          fill&#x3D;&quot;#151E2C&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M288.5 184.5L288.5 214L347 154.5L318.5 154.5C301.931 154.5 288.5 167.931 288.5 184.5Z&quot;
+          fill&#x3D;&quot;#2F3B4B&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M286.5 6V-23.5L345 36H316.5C299.931 36 286.5 22.5685 286.5 6Z&quot;
+          fill&#x3D;&quot;#465467&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M286.5 6V-23.5L228 36H256.5C273.069 36 286.5 22.5685 286.5 6Z&quot;
+          fill&#x3D;&quot;#2F3B4B&quot;
+        &gt;&lt;/path&gt;
+        &lt;path
+          d&#x3D;&quot;M346.5 66.5V37L288 96.5H316.5C333.069 96.5 346.5 83.0685 346.5 66.5Z&quot;
+          fill&#x3D;&quot;#2F3B4B&quot;
+        &gt;&lt;/path&gt;
+        &lt;g opacity&#x3D;&quot;0.34&quot;&gt;
+          &lt;path
+            d&#x3D;&quot;M233 65.5V36L291.5 95.5H263C246.431 95.5 233 82.0685 233 65.5Z&quot;
+            fill&#x3D;&quot;#465467&quot;
+          &gt;&lt;/path&gt;
+          &lt;path
+            d&#x3D;&quot;M233 65.5V36L174.5 95.5H203C219.569 95.5 233 82.0685 233 65.5Z&quot;
+            fill&#x3D;&quot;#2F3B4B&quot;
+          &gt;&lt;/path&gt;
+        &lt;/g&gt;
+      &lt;/svg&gt;
+      &lt;a
+        class&#x3D;&quot;flex items-center gap-1&quot;
+        target&#x3D;&quot;_blank&quot;
+        href&#x3D;&quot;https://github.com/mutsami/si_assessment&quot;
+        rel&#x3D;&quot;noopener noreferrer&quot;
+      &gt;
+        &lt;svg
+          xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+          viewBox&#x3D;&quot;0 0 448 512&quot;
+          class&#x3D;&quot;h-6 w-6&quot;
+        &gt;
+          &lt;path
+            d&#x3D;&quot;M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z&quot;
+            fill&#x3D;&quot;currentColor&quot;
+          &gt;&lt;/path&gt;
+        &lt;/svg&gt;
+        mutsami/si_assessment
+      &lt;/a&gt;
+      &lt;div class&#x3D;&quot;mt-4 grid grid-cols-2 gap-4&quot; style&#x3D;&quot;z-index: 1000&quot;&gt;
+        &lt;div class&#x3D;&quot;flex flex-col&quot;&gt;
+          &lt;label
+            class&#x3D;&quot;text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400&quot;
+          &gt;
+            &lt;span class&#x3D;&quot;flex items-center gap-x-2&quot;&gt;HTTPS &lt;/span&gt;
+          &lt;/label&gt;
+          &lt;div class&#x3D;&quot;mt-1 flex flex-col&quot;&gt;Enabled&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;flex flex-col&quot;&gt;
+          &lt;label
+            class&#x3D;&quot;text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400&quot;
+          &gt;
+            &lt;span class&#x3D;&quot;flex items-center gap-x-2&quot;&gt;Version &lt;/span&gt;
+          &lt;/label&gt;
+          &lt;div class&#x3D;&quot;mt-1 flex flex-col&quot;&gt;V 0.0.1&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;flex flex-col&quot;&gt;
+          &lt;label
+            class&#x3D;&quot;text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400&quot;
+          &gt;
+            &lt;span class&#x3D;&quot;flex items-center gap-x-2&quot;&gt;Quick Deploy &lt;/span&gt;
+          &lt;/label&gt;
+          &lt;div class&#x3D;&quot;mt-1 flex flex-col&quot;&gt;Disabled&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;flex flex-col&quot;&gt;
+          &lt;label
+            class&#x3D;&quot;text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400&quot;
+          &gt;
+            &lt;span class&#x3D;&quot;flex items-center gap-x-2&quot;&gt;Envoyer Integration &lt;/span&gt;
+          &lt;/label&gt;
+          &lt;div class&#x3D;&quot;mt-1 flex flex-col&quot;&gt;Disabled&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;z-20 flex flex-col&quot;&gt;
+          &lt;label
+            class&#x3D;&quot;text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400&quot;
+          &gt;
+            &lt;span class&#x3D;&quot;flex items-center gap-x-2&quot;&gt;Stack &lt;/span&gt;
+          &lt;/label&gt;
+          &lt;div class&#x3D;&quot;mt-1 max-w-sm break-all&quot;&gt;Angular/TS/GCP&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;flex flex-col&quot;&gt;
+          &lt;label
+            class&#x3D;&quot;text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400&quot;
+          &gt;
+            &lt;span class&#x3D;&quot;flex items-center gap-x-2&quot;&gt;Last Deployed &lt;/span&gt;
+          &lt;/label&gt;
+          &lt;div class&#x3D;&quot;mt-1 flex flex-col&quot;&gt;May 2, 2024, 5:34 PM&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./footer.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><footer class="footer">  <div    class="px-6 py-4 text-sm dark:bg-gray-800 bg-gray-900 text-gray-100 relative overflow-hidden px-8 py-6"  >    <div class="flex items-center justify-between">      <div class="flex items-center gap-3">        <h5 class="forge-h5 text-gray-100">Application</h5>      </div>    </div>    <div class="py-2">      <svg        width="314"        height="214"        viewBox="0 0 314 214"        fill="none"        xmlns="http://www.w3.org/2000/svg"        class="absolute right-0 top-0 -z-10 sm:z-10"      >        <path          d="M174.5 6V-23.5L233 36H204.5C187.931 36 174.5 22.5685 174.5 6Z"          fill="#465467"        ></path>        <path          d="M174.5 6V-23.5L116 36H144.5C161.069 36 174.5 22.5685 174.5 6Z"          fill="#151E2C"        ></path>        <path          d="M116.5 65.5V36L175 95.5H146.5C129.931 95.5 116.5 82.0685 116.5 65.5Z"          fill="#465467"        ></path>        <path          d="M116.5 65.5V36L58 95.5H86.5C103.069 95.5 116.5 82.0685 116.5 65.5Z"          fill="#2F3B4B"        ></path>        <path          d="M59.5 125V95.5L118 155H89.5C72.9315 155 59.5 141.569 59.5 125Z"          fill="#151E2C"        ></path>        <path          d="M59.5 125V95.5L1.00003 155H29.5C46.0686 155 59.5 141.569 59.5 125Z"          fill="#2F3B4B"        ></path>        <path          d="M58.5 184.5L58.5 214L-5.20166e-06 154.5L28.5 154.5C45.0685 154.5 58.5 167.931 58.5 184.5Z"          fill="#151E2C"        ></path>        <path          d="M58.5 184.5L58.5 214L117 154.5L88.5 154.5C71.9315 154.5 58.5 167.931 58.5 184.5Z"          fill="#2F3B4B"        ></path>        <path          d="M174.5 125V95.5L233 155H204.5C187.931 155 174.5 141.569 174.5 125Z"          fill="#151E2C"        ></path>        <path          d="M174.5 125V95.5L116 155H144.5C161.069 155 174.5 141.569 174.5 125Z"          fill="#2F3B4B"        ></path>        <path          d="M173.5 184.5L173.5 214L115 154.5L143.5 154.5C160.069 154.5 173.5 167.931 173.5 184.5Z"          fill="#151E2C"        ></path>        <path          d="M173.5 184.5L173.5 214L232 154.5L203.5 154.5C186.931 154.5 173.5 167.931 173.5 184.5Z"          fill="#2F3B4B"        ></path>        <path          d="M289.5 125V95.5L348 155H319.5C302.931 155 289.5 141.569 289.5 125Z"          fill="#151E2C"        ></path>        <path          d="M289.5 125V95.5L231 155H259.5C276.069 155 289.5 141.569 289.5 125Z"          fill="#2F3B4B"        ></path>        <path          d="M288.5 184.5L288.5 214L230 154.5L258.5 154.5C275.069 154.5 288.5 167.931 288.5 184.5Z"          fill="#151E2C"        ></path>        <path          d="M288.5 184.5L288.5 214L347 154.5L318.5 154.5C301.931 154.5 288.5 167.931 288.5 184.5Z"          fill="#2F3B4B"        ></path>        <path          d="M286.5 6V-23.5L345 36H316.5C299.931 36 286.5 22.5685 286.5 6Z"          fill="#465467"        ></path>        <path          d="M286.5 6V-23.5L228 36H256.5C273.069 36 286.5 22.5685 286.5 6Z"          fill="#2F3B4B"        ></path>        <path          d="M346.5 66.5V37L288 96.5H316.5C333.069 96.5 346.5 83.0685 346.5 66.5Z"          fill="#2F3B4B"        ></path>        <g opacity="0.34">          <path            d="M233 65.5V36L291.5 95.5H263C246.431 95.5 233 82.0685 233 65.5Z"            fill="#465467"          ></path>          <path            d="M233 65.5V36L174.5 95.5H203C219.569 95.5 233 82.0685 233 65.5Z"            fill="#2F3B4B"          ></path>        </g>      </svg>      <a        class="flex items-center gap-1"        target="_blank"        href="https://github.com/mutsami/si_assessment"        rel="noopener noreferrer"      >        <svg          xmlns="http://www.w3.org/2000/svg"          viewBox="0 0 448 512"          class="h-6 w-6"        >          <path            d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"            fill="currentColor"          ></path>        </svg>        mutsami/si_assessment      </a>      <div class="mt-4 grid grid-cols-2 gap-4" style="z-index: 1000">        <div class="flex flex-col">          <label            class="text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400"          >            <span class="flex items-center gap-x-2">HTTPS </span>          </label>          <div class="mt-1 flex flex-col">Enabled</div>        </div>        <div class="flex flex-col">          <label            class="text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400"          >            <span class="flex items-center gap-x-2">Version </span>          </label>          <div class="mt-1 flex flex-col">V 0.0.1</div>        </div>        <div class="flex flex-col">          <label            class="text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400"          >            <span class="flex items-center gap-x-2">Quick Deploy </span>          </label>          <div class="mt-1 flex flex-col">Disabled</div>        </div>        <div class="flex flex-col">          <label            class="text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400"          >            <span class="flex items-center gap-x-2">Envoyer Integration </span>          </label>          <div class="mt-1 flex flex-col">Disabled</div>        </div>        <div class="z-20 flex flex-col">          <label            class="text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400"          >            <span class="flex items-center gap-x-2">Stack </span>          </label>          <div class="mt-1 max-w-sm break-all">Angular/TS/GCP</div>        </div>        <div class="flex flex-col">          <label            class="text-sm font-normal text-gray-800 dark:text-gray-400 !text-gray-300 dark:!text-gray-400"          >            <span class="flex items-center gap-x-2">Last Deployed </span>          </label>          <div class="mt-1 flex flex-col">May 2, 2024, 5:34 PM</div>        </div>      </div>    </div>  </div></footer></div>'
+    var COMPONENTS = [{'name': 'AlbumComponent', 'selector': 'app-album'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'PhotoComponent', 'selector': 'app-photo'},{'name': 'SideNavComponent', 'selector': 'app-side-nav'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VerificationComponent', 'selector': 'app-verification'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FooterComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FooterComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
